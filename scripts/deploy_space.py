@@ -1,6 +1,6 @@
 """Create or update the Hugging Face Space that runs Axiom.
 
-    HF_TOKEN=... python scripts/deploy_space.py
+    python scripts/deploy_space.py   (HF_TOKEN from the environment or .env)
 
 Model keys are read from .env and stored as Space secrets; nothing secret is uploaded.
 
@@ -44,8 +44,8 @@ def read_env(path: pathlib.Path) -> dict:
 
 
 def main() -> None:
-    api = HfApi(token=os.environ["HF_TOKEN"])
     env = read_env(ROOT / ".env")
+    api = HfApi(token=os.environ.get("HF_TOKEN") or env["HF_TOKEN"])
 
     if not api.repo_exists(SPACE, repo_type="space"):
         api.create_repo(SPACE, repo_type="space", space_sdk="docker", private=False)
