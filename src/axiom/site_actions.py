@@ -92,7 +92,7 @@ EMAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[a-z]{2,}$", re.I)
 RESULTS = {
     "show_on_page": "Done: the page has scrolled there and highlighted it. Mention it in a few words.",
     "start_email_to_vanshaj": "Done: the email flow is open. Say you'll help them write to him and ask for their name.",
-    "open_resume": "Done: the resume viewer is open. Say so in a few words.",
+    "open_resume": "Done: the site is showing his resume (a viewer, or an Open button on phones). Say so in a few words.",
     "show_profile_card": "Done: the card is showing in the chat. Add at most one short line.",
     "send_email": "The site is showing them this draft with Send and Edit buttons. Reply with one short line telling them to check it and press Send, or say what to change. Don't ask them to type yes.",
 }

@@ -62,6 +62,22 @@ app.add_middleware(
     allow_headers=["Content-Type"],
 )
 app.mount("/mcp", mcp_http)
+
+
+class ExactMcpPath:
+    """Serve POST /mcp itself. A mount only matches /mcp/..., so Starlette would answer
+    /mcp with a redirect, and MCP clients generally don't follow redirects on a POST."""
+
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] == "http" and scope["path"] == "/mcp":
+            scope = {**scope, "path": "/mcp/", "raw_path": b"/mcp/"}
+        await self.app(scope, receive, send)
+
+
+app.add_middleware(ExactMcpPath)
 limiter = RateLimiter(settings.requests_per_minute)
 
 

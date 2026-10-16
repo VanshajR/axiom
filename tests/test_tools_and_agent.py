@@ -239,3 +239,39 @@ def test_tidy_drops_repeats_and_keeps_replies_short():
     assert agent.tidy(rambling) == "What would you like to say to Vanshaj?"
     asked_twice = "Thanks, Priya. What's your email address? And what company are you with?"
     assert agent.tidy(asked_twice) == "Thanks, Priya. What's your email address?"
+
+
+async def test_starting_the_email_flow_hands_over_in_the_same_request():
+    said = ("I'm Priya (priya@acme.io), a recruiter at Acme. "
+            "Tell him we're hiring an AI engineer and would love a call next week.")
+    fields = {"name": "Priya", "email": "priya@acme.io", "company": "Acme", "role": "recruiter",
+              "purpose": "hiring", "message": "We're hiring an AI engineer and would love a call next week."}
+    provider = FakeProvider("groq", ["openai/gpt-oss-120b"], [
+        call("start_email_to_vanshaj", {}, id_="start"),
+        call("send_email", fields, id_="send"),
+        say("Here's your draft."),
+    ])
+    router = Router([provider])
+    await router.refresh()
+    events = [e async for e in agent.run(said, [], router)]
+
+    actions = [e["name"] for e in events if e["type"] == "action"]
+    assert actions == ["start_email_to_vanshaj", "send_email"]
+    # the second turn ran under the email prompt with only send_email on offer
+    second_messages = provider.seen[1][1]
+    assert second_messages[0]["content"] == agent.CONTACT_PROMPT
+    assert not any(m.get("tool_call_id") == "start" for m in second_messages)
+
+
+async def test_public_mcp_answers_at_mcp_without_a_redirect():
+    import httpx
+    from axiom import app as app_module
+
+    async with tools.mcp.session_manager.run():
+        transport = httpx.ASGITransport(app=app_module.app)
+        async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+            r = await client.post("/mcp", json={"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+                                  headers={"Accept": "application/json, text/event-stream"})
+    assert r.status_code == 200
+    names = {t["name"] for t in r.json()["result"]["tools"]}
+    assert "get_project" in names and "send_email" not in names

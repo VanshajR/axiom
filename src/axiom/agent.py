@@ -116,13 +116,15 @@ async def run(message: str, history: list[dict], router: Router, mode: str = "ch
     contact = mode == "contact"
     with tracer.start_as_current_span("axiom.chat") as span:
         try:
-            prompt = CONTACT_PROMPT if contact else system_prompt(await tools.store.get())
-            messages = [{"role": "system", "content": prompt}]
             # only plain turns from the visitor's side; tool traffic stays server-side
-            for turn in history[-10:]:
-                if turn.get("role") in ("user", "assistant") and isinstance(turn.get("content"), str):
-                    messages.append({"role": turn["role"], "content": turn["content"][: settings.max_message_chars * 2]})
-            messages.append({"role": "user", "content": message})
+            turns = [
+                {"role": t["role"], "content": t["content"][: settings.max_message_chars * 2]}
+                for t in history[-10:]
+                if t.get("role") in ("user", "assistant") and isinstance(t.get("content"), str)
+            ]
+            turns.append({"role": "user", "content": message})
+            prompt = CONTACT_PROMPT if contact else system_prompt(await tools.store.get())
+            messages = [{"role": "system", "content": prompt}, *turns]
             schemas = [site_actions.SEND_EMAIL] if contact else await tools.openai_tool_schemas() + site_actions.SCHEMAS
 
             answered_by, attempts, tool_count = None, 1, 0
@@ -184,6 +186,13 @@ async def run(message: str, history: list[dict], router: Router, mode: str = "ch
                     except Exception as e:  # a bad call shouldn't end the conversation; the model can recover
                         result = json.dumps({"error": f"{type(e).__name__}: {e}"})
                     messages.append({"role": "tool", "tool_call_id": call.id, "content": result})
+
+                if not contact and any(c.name == "start_email_to_vanshaj" for c in end.tool_calls):
+                    # Hand over to the email flow in the same request: if the visitor already
+                    # gave their details, they get a draft now instead of being asked again.
+                    contact = True
+                    messages = [{"role": "system", "content": CONTACT_PROMPT}, *turns]
+                    schemas = [site_actions.SEND_EMAIL]
             else:
                 yield {"type": "text", "text": "\n\nI went in circles on that one. Could you ask it another way?"}
 

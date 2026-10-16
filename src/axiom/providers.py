@@ -50,6 +50,12 @@ class ChatProvider(ABC):
     def stream(self, model: str, messages: list[dict], tools: list[dict], max_tokens: int = 1200) -> AsyncIterator[Event]: ...
 
 
+# A healthy model starts streaming within a few seconds (Gemini's thinking included).
+# An overloaded one can sit silent for minutes, so give up after 20s of silence and
+# let the router try the next model; the silent one gets benched for a while.
+STREAM_TIMEOUT = httpx.Timeout(20.0, connect=10.0)
+
+
 class OpenAICompatible(ChatProvider):
     def __init__(self, name: str, base_url: str, api_key: str, http: httpx.AsyncClient, echoes_extra: bool = False):
         self.name = name
@@ -75,7 +81,7 @@ class OpenAICompatible(ChatProvider):
         finish, usage = None, {}
         try:
             async with self.http.stream(
-                "POST", f"{self.base_url}/chat/completions", json=body, headers=self._headers, timeout=60
+                "POST", f"{self.base_url}/chat/completions", json=body, headers=self._headers, timeout=STREAM_TIMEOUT
             ) as r:
                 if r.status_code != 200:
                     raise classify(self.name, model, r.status_code, (await r.aread()).decode(errors="replace"))
