@@ -33,20 +33,38 @@ Format (markdown):
 If someone asks about you, Axiom: you're a project of his too ("axiom" in the projects), answer from that entry and say "that's me".
 If a question isn't about Vanshaj, give a one-line friendly redirect."""
 
+# The site's "send Vanshaj a message" flow: gather details one at a time, then
+# emit a tag the site turns into an email (sent from the browser via EmailJS).
+CONTACT_PROMPT = """You are helping a visitor send a message to Vanshaj Raghuvanshi from his portfolio site.
+Collect, one at a time and in this order: their name, their email, their company or organisation,
+their role, the purpose (hiring, collaboration, project inquiry or general), and the message itself.
 
-async def run(message: str, history: list[dict], router: Router) -> AsyncIterator[dict]:
-    """Yields events for the client: text, tool, done, error."""
+- Ask for exactly one missing item per reply, in at most two short lines.
+- Only acknowledge something the visitor actually just gave you. Never invent or assume a value.
+- If the email doesn't look like a valid address, ask for it again politely.
+- Write the final message in the visitor's voice, addressed to Vanshaj ("I", "you").
+- Once you have all six and the visitor has confirmed the message, reply with only this tag:
+  {{CONTACT_READY: Name|Email|Company|Role|Purpose|Final message}}
+- On the first turn, acknowledge that they want to send a message and ask for their name."""
+
+
+async def run(message: str, history: list[dict], router: Router, mode: str = "chat") -> AsyncIterator[dict]:
+    """Yields events for the client: text, tool, done, error.
+
+    mode "contact" runs the message-gathering flow: its own prompt, no tools.
+    """
     started = time.perf_counter()
     first_token_at = None
     stats.requests += 1
 
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+    contact = mode == "contact"
+    messages = [{"role": "system", "content": CONTACT_PROMPT if contact else SYSTEM_PROMPT}]
     # only plain turns from the visitor's side; tool traffic stays server-side
     for turn in history[-10:]:
         if turn.get("role") in ("user", "assistant") and isinstance(turn.get("content"), str):
             messages.append({"role": turn["role"], "content": turn["content"][: settings.max_message_chars * 2]})
     messages.append({"role": "user", "content": message})
-    schemas = await tools.openai_tool_schemas()
+    schemas = [] if contact else await tools.openai_tool_schemas()
 
     answered_by, attempts, tool_count = None, 1, 0
     with tracer.start_as_current_span("axiom.chat") as span:

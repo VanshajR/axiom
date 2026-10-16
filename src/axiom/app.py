@@ -9,6 +9,7 @@ import asyncio
 import json
 import logging
 from contextlib import asynccontextmanager
+from typing import Literal
 
 import httpx
 from fastapi import FastAPI, HTTPException, Request
@@ -72,6 +73,7 @@ class Turn(BaseModel):
 class ChatRequest(BaseModel):
     message: str = Field(min_length=1)
     history: list[Turn] = Field(default_factory=list, max_length=40)
+    mode: Literal["chat", "contact"] = "chat"
 
 
 def _visitor(request: Request) -> str:
@@ -94,7 +96,7 @@ async def chat(body: ChatRequest, request: Request):
         raise HTTPException(429, "That's a lot of questions at once. Give it a minute.")
 
     async def events():
-        async for event in agent.run(body.message, [t.model_dump() for t in body.history], request.app.state.router):
+        async for event in agent.run(body.message, [t.model_dump() for t in body.history], request.app.state.router, body.mode):
             yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
 
     return StreamingResponse(events(), media_type="text/event-stream", headers={"Cache-Control": "no-cache"})

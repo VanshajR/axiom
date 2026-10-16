@@ -121,3 +121,19 @@ def test_chat_rejects_other_sites_even_if_a_proxy_allowed_the_preflight(monkeypa
     client = TestClient(app_module.app)  # no lifespan: the request is rejected before any model is needed
     r = client.post("/chat", json={"message": "hi"}, headers={"Origin": "https://evil.example"})
     assert r.status_code == 403
+
+
+async def test_contact_mode_uses_its_own_prompt_and_no_tools():
+    class Recorder(FakeProvider):
+        async def stream(self, model, messages, tools):
+            self.tools_offered = tools
+            async for e in super().stream(model, messages, tools):
+                yield e
+
+    provider = Recorder("groq", ["openai/gpt-oss-120b"], [say("Happy to help. What's your name?")])
+    router = Router([provider])
+    await router.refresh()
+    events = [e async for e in agent.run("I want to email him", [], router, mode="contact")]
+    assert provider.tools_offered == []
+    assert "CONTACT_READY" in provider.seen[0][1][0]["content"]
+    assert events[-1]["type"] == "done"
