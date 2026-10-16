@@ -180,6 +180,13 @@ async def get_skills(skill: str = "") -> str:
 
 
 @mcp.tool()
+async def get_easter_eggs() -> str:
+    """Fun and hidden things to try on Vanshaj's portfolio site."""
+    data = await store.get()
+    return _json((data.get("site") or {}).get("easter_eggs", []))
+
+
+@mcp.tool()
 async def get_contact() -> str:
     """How to reach Vanshaj. The site's contact form (or Axiom's email flow) can also send him a message."""
     data = await store.get()

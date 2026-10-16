@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T17:16:45.375Z",
+  "generated_at": "2026-10-16T20:09:57.750Z",
   "profile": {
     "name": "Vanshaj Raghuvanshi",
     "headline": "Software Engineer | AI Systems, Agentic Workflows, and Cloud/Backend Infrastructure",
@@ -1670,5 +1670,35 @@
       "text": "Gold Medalist, Class XII (CBSE), **98%** in PCM and Computer Science",
       "year": 2021
     }
-  ]
+  ],
+  "site": {
+    "assistant": {
+      "name": "Axiom",
+      "created_by": "Vanshaj Raghuvanshi",
+      "description": "Vanshaj's custom AI assistant, built by him as part of this portfolio to help visitors explore his projects, skills and experience, find the fun bits of the site, and get in touch with him.",
+      "personality": "A friendly, professional guide: warm, quick and to the point, with a little personality. Proud of Vanshaj's work without overselling it, honest when it doesn't know something, and happy to talk about itself, since it's one of his projects too."
+    },
+    "easter_eggs": [
+      {
+        "title": "Logo double-click",
+        "description": "Double-click the big logo in the welcome section, at the top of the page, to swap it for a 3D version you can spin around."
+      },
+      {
+        "title": "The phone in the contact section",
+        "description": "On desktop, the phone near the contact section has a working Google search bar. Try searching for something like YouTube."
+      },
+      {
+        "title": "Theme-aware text selection",
+        "description": "Select some text; the highlight colour changes between dark and light mode."
+      },
+      {
+        "title": "Axiom's email relay",
+        "description": "Axiom can take down your message and email it to Vanshaj straight from the chat."
+      },
+      {
+        "title": "Ask Axiom about itself",
+        "description": "Axiom is one of Vanshaj's projects. Ask what it's built on, or tap the eye icon on its project card."
+      }
+    ]
+  }
 }

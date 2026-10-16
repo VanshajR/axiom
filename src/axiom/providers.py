@@ -47,7 +47,7 @@ class ChatProvider(ABC):
     async def list_models(self) -> list[str]: ...
 
     @abstractmethod
-    def stream(self, model: str, messages: list[dict], tools: list[dict]) -> AsyncIterator[Event]: ...
+    def stream(self, model: str, messages: list[dict], tools: list[dict], max_tokens: int = 1200) -> AsyncIterator[Event]: ...
 
 
 class OpenAICompatible(ChatProvider):
@@ -65,8 +65,8 @@ class OpenAICompatible(ChatProvider):
         # Gemini's compat endpoint answers "models/gemini-...", Groq answers bare ids
         return [m["id"].removeprefix("models/") for m in r.json().get("data", [])]
 
-    async def stream(self, model: str, messages: list[dict], tools: list[dict]) -> AsyncIterator[Event]:
-        body = {"model": model, "messages": self._prepare(messages), "stream": True, "temperature": 0.3, "max_tokens": 1200}
+    async def stream(self, model: str, messages: list[dict], tools: list[dict], max_tokens: int = 1200) -> AsyncIterator[Event]:
+        body = {"model": model, "messages": self._prepare(messages), "stream": True, "temperature": 0.3, "max_tokens": max_tokens}
         if tools:
             body["tools"] = tools
             body["tool_choice"] = "auto"

@@ -123,17 +123,119 @@ def test_chat_rejects_other_sites_even_if_a_proxy_allowed_the_preflight(monkeypa
     assert r.status_code == 403
 
 
-async def test_contact_mode_uses_its_own_prompt_and_no_tools():
+async def test_contact_mode_only_offers_send_email():
     class Recorder(FakeProvider):
-        async def stream(self, model, messages, tools):
+        async def stream(self, model, messages, tools, max_tokens=1200):
             self.tools_offered = tools
-            async for e in super().stream(model, messages, tools):
+            async for e in super().stream(model, messages, tools, max_tokens):
                 yield e
 
     provider = Recorder("groq", ["openai/gpt-oss-120b"], [say("Happy to help. What's your name?")])
     router = Router([provider])
     await router.refresh()
     events = [e async for e in agent.run("I want to email him", [], router, mode="contact")]
-    assert provider.tools_offered == []
-    assert "CONTACT_READY" in provider.seen[0][1][0]["content"]
+    assert [t["function"]["name"] for t in provider.tools_offered] == ["send_email"]
+    assert "send_email" in provider.seen[0][1][0]["content"]
     assert events[-1]["type"] == "done"
+
+
+def test_persona_comes_from_the_site_data(profile):
+    prompt = agent.system_prompt(profile)
+    assert "Vanshaj Raghuvanshi designed and built you" in prompt
+    assert profile["site"]["assistant"]["personality"] in prompt
+    assert "start_email_to_vanshaj" in prompt and "show_on_page" in prompt
+
+
+async def test_site_actions_reach_the_client_as_events():
+    provider = FakeProvider("groq", ["openai/gpt-oss-120b"], [
+        call("show_on_page", {"target": "Projects"}, id_="a"),
+        say("Here are his projects."),
+    ])
+    router = Router([provider])
+    await router.refresh()
+    events = [e async for e in agent.run("take me to his projects", [], router)]
+
+    actions = [e for e in events if e["type"] == "action"]
+    assert actions == [{"type": "action", "name": "show_on_page", "args": {"target": "projects"}}]
+    # the model was told it happened, so it doesn't claim something it didn't do
+    tool_msg = next(m for m in provider.seen[1][1] if m["role"] == "tool")
+    assert json.loads(tool_msg["content"])["ok"] is True
+
+
+async def test_page_anchors_keep_their_hash_and_bad_cards_are_refused():
+    from axiom import site_actions
+
+    assert site_actions.normalise("show_on_page", {"target": "project-depthpad"}) == {"target": "#project-depthpad"}
+    assert site_actions.normalise("show_profile_card", {"platform": "myspace"}) is None
+
+
+async def test_site_actions_are_not_on_the_public_mcp_server():
+    names = {s["function"]["name"] for s in await tools.openai_tool_schemas()}
+    assert "show_on_page" not in names and "start_email_to_vanshaj" not in names
+    assert "get_easter_eggs" in names
+
+
+async def test_easter_eggs_come_from_the_data(profile):
+    eggs = json.loads(await tools.call("get_easter_eggs", {}))
+    assert eggs == profile["site"]["easter_eggs"]
+
+
+async def test_email_is_sent_through_a_checked_tool_call():
+    good = {"name": "Priya", "email": "priya@acme.io", "company": "Acme", "role": "Recruiter",
+            "purpose": "hiring", "message": "Hi Vanshaj, we would love to talk about an AI engineer role."}
+    provider = FakeProvider("groq", ["openai/gpt-oss-120b"], [
+        call("send_email", {**good, "email": "priya@acme"}, id_="bad"),  # not a valid address
+        call("send_email", good, id_="ok"),
+        say("Thanks Priya, it is on its way."),
+    ])
+    router = Router([provider])
+    await router.refresh()
+    said = "Hi Vanshaj, we would love to talk about an AI engineer role."
+    events = [e async for e in agent.run(said, [], router, mode="contact")]
+
+    assert [e for e in events if e["type"] == "action"] == [{"type": "action", "name": "send_email", "args": good}]
+    # the bad address went back to the model as something to fix, not to the site
+    first_result = next(m for m in provider.seen[1][1] if m["role"] == "tool")
+    assert "isn't a valid email" in first_result["content"]
+
+
+def test_check_email_requires_name_address_and_message():
+    from axiom.site_actions import check_email
+
+    assert check_email({"name": "", "email": "a@b.co", "message": "hello there"})[1] == "missing their name"
+    assert check_email({"name": "A", "email": "a@b.co", "message": ""})[1] == "missing the message itself"
+    fields, problem = check_email({"name": "A", "email": "a@b.co", "message": "hello there"})
+    assert problem is None and fields["purpose"] == "general"
+
+
+def test_drafts_must_come_from_what_the_visitor_wrote():
+    from axiom.site_actions import check_email
+
+    visitor = "Priya. priya@acme.io. Acme AI, recruiter. We're hiring an AI engineer for agent tooling, open to a call next week?"
+    ok = {"name": "Priya", "email": "priya@acme.io",
+          "message": "Hi Vanshaj, we're hiring an AI engineer for agent tooling at Acme AI. Are you open to a call next week?"}
+    invented = {"name": "Priya", "email": "priya@acme.io",
+                "message": "I was impressed by your full-stack development and product design work and have an exciting senior role."}
+    assert check_email(ok, visitor)[1] is None
+    assert "made up" in check_email(invented, visitor)[1]
+
+
+async def test_email_flow_only_shows_the_final_attempt():
+    provider = FakeProvider("groq", ["openai/gpt-oss-120b"], [
+        ("Drafting now...", [__import__("axiom.providers", fromlist=["ToolCall"]).ToolCall(
+            id="x", name="send_email", arguments='{"name": "A", "email": "a@b.co", "message": "an invented pitch about synergy"}')]),
+        say("What would you like to say to Vanshaj? (Waiting for your message...)......"),
+    ])
+    router = Router([provider])
+    await router.refresh()
+    events = [e async for e in agent.run("Acme, recruiter", [], router, mode="contact")]
+    text = "".join(e["text"] for e in events if e["type"] == "text")
+    assert text == "What would you like to say to Vanshaj?"
+
+
+def test_tidy_drops_repeats_and_keeps_replies_short():
+    rambling = ("What would you like to say to Vanshaj? Whenever you're ready, just type it. "
+                "Whenever you're ready, just type it. Just let me know the text. Whenever you're ready, just type it.")
+    assert agent.tidy(rambling) == "What would you like to say to Vanshaj?"
+    asked_twice = "Thanks, Priya. What's your email address? And what company are you with?"
+    assert agent.tidy(asked_twice) == "Thanks, Priya. What's your email address?"

@@ -104,7 +104,7 @@ class Router:
                     self.benched_until[c.key] = time.time() + seconds
         self.benched_until[candidate.key] = time.time() + seconds
 
-    async def stream(self, messages: list[dict], tools: list[dict]) -> AsyncIterator[Event | Answering]:
+    async def stream(self, messages: list[dict], tools: list[dict], max_tokens: int = 1200) -> AsyncIterator[Event | Answering]:
         """Yields who's answering (Answering), then that model's events.
 
         Falls back only before any text has gone out: once a visitor has seen
@@ -118,7 +118,7 @@ class Router:
             with model_call_span(candidate.provider.name, candidate.model) as span:
                 try:
                     announced = False
-                    async for event in candidate.provider.stream(candidate.model, messages, tools):
+                    async for event in candidate.provider.stream(candidate.model, messages, tools, max_tokens):
                         if not announced:
                             yield Answering(candidate, attempts)
                             announced = True

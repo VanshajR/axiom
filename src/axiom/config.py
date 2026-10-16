@@ -16,7 +16,7 @@ class Settings:
         default_factory=lambda: _list(os.getenv("ALLOWED_ORIGINS", "https://vanshajraghuvanshi.dev"))
     )
     # visitor-facing limits that keep the free tiers alive
-    requests_per_minute: int = int(os.getenv("REQUESTS_PER_MINUTE", "8"))
+    requests_per_minute: int = int(os.getenv("REQUESTS_PER_MINUTE", "12"))
     max_message_chars: int = int(os.getenv("MAX_MESSAGE_CHARS", "1200"))
     max_turns: int = int(os.getenv("MAX_AGENT_TURNS", "5"))
 

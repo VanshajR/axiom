@@ -68,7 +68,7 @@ async def test_bad_request_moves_on_without_benching():
 
 async def test_no_fallback_after_text_has_been_sent():
     class HalfAnswer(FakeProvider):
-        async def stream(self, model, messages, tools):
+        async def stream(self, model, messages, tools, max_tokens=1200):
             yield TextDelta("partial")
             raise Overloaded(self.name, model, "dropped")
 

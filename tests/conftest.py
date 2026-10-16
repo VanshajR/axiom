@@ -29,7 +29,7 @@ class FakeProvider(ChatProvider):
     async def list_models(self):
         return self.models
 
-    async def stream(self, model, messages, tools):
+    async def stream(self, model, messages, tools, max_tokens=1200):
         self.seen.append((model, messages))
         step = self.script.pop(0)
         if isinstance(step, Exception):

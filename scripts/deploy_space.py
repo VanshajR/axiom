@@ -54,7 +54,8 @@ def main() -> None:
             api.add_space_secret(SPACE, key, env[key])
     api.add_space_variable(SPACE, "PROFILE_URL", f"{SITE}/profile.json")
     # localhost stays allowed so the site under development can talk to the deployed backend
-    api.add_space_variable(SPACE, "ALLOWED_ORIGINS", f"{SITE},http://localhost:3000")
+    # the Vercel production alias stays allowed so previews and the bare deploy work too
+    api.add_space_variable(SPACE, "ALLOWED_ORIGINS", f"{SITE},https://portfolio-beta-ten-wjzxv5saya.vercel.app,http://localhost:3000")
 
     with tempfile.TemporaryDirectory() as tmp:
         staging = pathlib.Path(tmp)
