@@ -1,0 +1,1674 @@
+{
+  "generated_at": "2026-10-16T17:16:45.375Z",
+  "profile": {
+    "name": "Vanshaj Raghuvanshi",
+    "headline": "Software Engineer | AI Systems, Agentic Workflows, and Cloud/Backend Infrastructure",
+    "email": "vanshajraghuvanshi@gmail.com",
+    "website": "https://vanshajraghuvanshi.dev",
+    "open_to_work": true,
+    "links": {
+      "github": "https://github.com/VanshajR",
+      "linkedin": "https://www.linkedin.com/in/vanshajraghuvanshi/",
+      "instagram": "https://www.instagram.com/vanshajr_0410",
+      "myanimelist": "https://myanimelist.net/animelist/VanshajR"
+    },
+    "bio": "Software engineer focused on Generative AI and agentic systems, with hands on experience across AI infrastructure, backend and cloud. Builds AI agents, tool calling pipelines and RAG systems, instruments them with provider agnostic observability, and ships the distributed backends behind them, with an emphasis on reliability, performance, and production-ready design. Computer Science and Engineering graduate, previously at DXFactor and DRDO.",
+    "about": "Hi, I'm **Vanshaj Raghuvanshi**, a **software engineer** working on Generative AI and **agentic systems**. I build AI agents, tool calling pipelines and RAG systems, along with the infrastructure they run on: **provider agnostic observability, distributed backends, and secure data access**, with a strong emphasis on reliability, performance, and production-ready design. Most recently I worked on **AI agents and infrastructure** at DXFactor, and on AI research and development at DRDO.",
+    "hobbies": {
+      "Reading": "Adventure, horror and fantasy. Favourites include Harry Potter, A Song of Ice and Fire, Enid Blyton, the Peculiar Children series and Stephen King.",
+      "Gaming": "Mostly multiplayer FPS (CoD, Apex, PUBG, Rainbow Six Siege) on mobile and PC, plus story games like the Spider-Man series and GTA.",
+      "Movies and series": "Hollywood and Bollywood classics, the MCU, Game of Thrones, Stranger Things.",
+      "Anime": "Avid watcher across genres. Favourites include Attack on Titan, Orb: On the Movements of the Earth, Vinland Saga, Dr. Stone, Frieren and Sword Art Online.",
+      "Music": "Rock, pop, occasionally metal and EDM. Arijit Singh, Atif Aslam, Linkin Park, Ed Sheeran and some Japanese artists."
+    }
+  },
+  "education": [
+    {
+      "id": "tiet",
+      "institution": "Thapar Institute of Engineering and Technology",
+      "short": "TIET",
+      "degree": "B.E. Computer Science",
+      "location": "Patiala, Punjab",
+      "start": "2022-09",
+      "end": "2026-07",
+      "score": "CGPA 9.00/10",
+      "url": "https://www.thapar.edu/",
+      "linkedin": "https://www.linkedin.com/school/tietofficial/",
+      "industry": "Higher education, computer science",
+      "summary": "BE Computer Science Engineering, Thapar Institute of Engineering and Technology. CGPA 9.00/10."
+    },
+    {
+      "id": "dps-12",
+      "institution": "Delhi Public School, Dehradun",
+      "degree": "Class XII (CBSE)",
+      "location": "Dehradun, Uttarakhand",
+      "end": "2021-07",
+      "score": "98%",
+      "notes": "PCM and Computer Science, Gold Medalist",
+      "url": "https://dpsdehradun.in/",
+      "linkedin": "https://www.linkedin.com/school/delhi-public-schools/",
+      "industry": "Secondary education, CBSE",
+      "summary": "AISSCE, CBSE Board, 12th Standard with 98% marks in PCM and Computer Science, and was a Gold Medalist."
+    },
+    {
+      "id": "dps-10",
+      "institution": "Delhi Public School, Dehradun",
+      "degree": "Class X (CBSE)",
+      "location": "Dehradun, Uttarakhand",
+      "end": "2019-05",
+      "score": "96%",
+      "url": "https://dpsdehradun.in/",
+      "linkedin": "https://www.linkedin.com/school/delhi-public-schools/",
+      "industry": "Secondary education, CBSE",
+      "summary": "AISSE, CBSE Board, 10th Standard with 96% marks."
+    }
+  ],
+  "experience": [
+    {
+      "id": "dxfactor",
+      "org": "DXFactor",
+      "role": "Software Engineer Intern",
+      "site_role": "Software Engineering Intern",
+      "kind": "work",
+      "location": "Ahmedabad, Gujarat",
+      "start": "2026-02",
+      "end": "2026-06",
+      "url": "https://dxfactor.com",
+      "industry": "Fitness tech, AI agents",
+      "summary": "Software Engineering Intern at DXFactor, a fitness tech company, part of the DXPartners group. Worked on AI agents and infrastructure.",
+      "highlights": [
+        {
+          "id": "routing",
+          "text": "Engineered and validated a provider-agnostic routing layer supporting **3 LLM providers** (OpenAI, Anthropic, Gemini), standardizing responses and agentic tool execution workflows.",
+          "tags": [
+            "llm",
+            "backend",
+            "agents"
+          ]
+        },
+        {
+          "id": "voice-agents",
+          "text": "Built and tested a multi-tenant AI voice-agent platform integrating ElevenLabs, Twilio, FastAPI, and PostgreSQL with **6+ backend tools** for lead capture, appointment scheduling, and CRM automation.",
+          "tags": [
+            "agents",
+            "backend",
+            "voice"
+          ]
+        },
+        {
+          "id": "rag",
+          "text": "Constructed a secure RAG platform with RBAC and tenant isolation supporting queries across **5,000+ enterprise documents**.",
+          "alts": [
+            "Engineered a multi-tenant RAG system with Role-Based Access Control (RBAC) enabling secure querying over **5,000+ documents**."
+          ],
+          "tags": [
+            "rag",
+            "security",
+            "backend"
+          ]
+        },
+        {
+          "id": "pocs",
+          "text": "Created POCs using OpenResponses, MCP tools, and agent frameworks to evaluate provider interoperability, tool-calling behavior, and enterprise AI workflows.",
+          "alts": [
+            "Developed POCs on a provider-agnostic, distributed AI platform using agent frameworks (OpenResponses, MCP tools) with product and engineering teams to ensure client alignment and feasibility."
+          ],
+          "tags": [
+            "agents",
+            "mcp"
+          ]
+        },
+        {
+          "id": "summarization",
+          "text": "Built summarization pipelines to process outputs from internal AI agents and resolve workflow issues.",
+          "tags": [
+            "llm",
+            "pipelines"
+          ]
+        },
+        {
+          "id": "isolation-tests",
+          "text": "Designed asynchronous validation and testing workflows, including cross-tenant isolation checks and unit and integration tests, ensuring zero data leakage.",
+          "overlaps": [
+            "rag"
+          ],
+          "tags": [
+            "testing",
+            "security"
+          ]
+        },
+        {
+          "id": "rag-throughput",
+          "text": "Achieved **1,700+ req/sec** on the multi-tenant RAG platform and reduced lookup latency by **57%** via Redis caching.",
+          "tags": [
+            "performance",
+            "backend"
+          ]
+        },
+        {
+          "id": "sandbox",
+          "text": "Designed a sandboxed execution layer for safe LLM-generated code execution, enabling tool-based reasoning over structured data with Pandas.",
+          "tags": [
+            "agents",
+            "security"
+          ]
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/company/dxfactor/"
+    },
+    {
+      "id": "drdo",
+      "org": "Defence Research and Development Organisation (DRDO)",
+      "short": "DRDO",
+      "role": "Artificial Intelligence Intern",
+      "site_role": "AI Research and Development Intern",
+      "kind": "work",
+      "location": "Dehradun, Uttarakhand",
+      "start": "2025-06",
+      "end": "2026-02",
+      "url": "https://www.drdo.gov.in",
+      "industry": "Defence research",
+      "summary": "AI Research and Development Intern at DRDO (Defence Research and Development Organisation), India.",
+      "highlights": [
+        {
+          "id": "occlusion",
+          "text": "Leveraged **GANs and Vision Transformers (ViT)** for occluded image completion and independently delivered a high-priority computer vision project.",
+          "alts": [
+            "Leveraged GAN and Vision Transformer (ViT) models to enhance occluded image completion accuracy."
+          ],
+          "tags": [
+            "cv",
+            "ml"
+          ]
+        },
+        {
+          "id": "dataset",
+          "text": "Generated and curated large-scale datasets (**20k+** images) improving robustness of AI pipelines.",
+          "tags": [
+            "data",
+            "ml"
+          ]
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/company/drdo-ministry-of-defence-govt-of-india/"
+    },
+    {
+      "id": "meril",
+      "org": "Meril",
+      "role": "Artificial Intelligence Intern",
+      "kind": "work",
+      "location": "Vapi, Gujarat",
+      "start": "2024-06",
+      "end": "2024-07",
+      "url": "https://www.merillife.com/",
+      "industry": "Medical technology",
+      "summary": "Summer internship in AI at Meril.",
+      "highlights": [
+        {
+          "id": "records",
+          "text": "Processed **2k+ patient records**, improving ML model accuracy by **30%**.",
+          "tags": [
+            "ml",
+            "data"
+          ]
+        },
+        {
+          "id": "pipelines",
+          "text": "Optimized TensorFlow/PyTorch pipelines improving efficiency by **40%**.",
+          "tags": [
+            "ml",
+            "performance"
+          ]
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/company/meril/"
+    },
+    {
+      "id": "codeclause",
+      "org": "CodeClause",
+      "role": "Artificial Intelligence Intern",
+      "kind": "work",
+      "start": "2024-06",
+      "end": "2024-07",
+      "url": "https://codeclause.com/",
+      "on_resume": false,
+      "summary": "Artificial Intelligence Intern at CodeClause.",
+      "highlights": [],
+      "linkedin": "https://www.linkedin.com/company/codeclause/",
+      "industry": "AI, software development"
+    },
+    {
+      "id": "techplement",
+      "org": "Techplement",
+      "role": "Python Development Intern",
+      "kind": "work",
+      "start": "2024-06",
+      "end": "2024-07",
+      "url": "https://techplement.com/",
+      "on_resume": false,
+      "summary": "Python Development Intern at Techplement.",
+      "highlights": [],
+      "linkedin": "https://www.linkedin.com/company/techplement/",
+      "industry": "Python, backend development"
+    },
+    {
+      "id": "ticc",
+      "org": "Thapar Institute Counselling Cell",
+      "short": "TICC",
+      "role": "Technical Lead and Mental Health Student Ambassador",
+      "site_role": "Technical Lead and Mental Health Ambassador",
+      "on_resume": "optional",
+      "kind": "leadership",
+      "location": "Patiala, Punjab",
+      "start": "2024-05",
+      "end": "2025-12",
+      "url": "https://ticc.thapar.edu/",
+      "summary": "Technical Lead and Mental Health Ambassador at Thapar Institute Counselling Cell, TIET.",
+      "highlights": [
+        {
+          "id": "android-app",
+          "text": "Spearheaded Android application launch and led technical initiatives.",
+          "tags": [
+            "leadership"
+          ]
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/company/thapar-institute-counselling-cell",
+      "industry": "Student wellness, community leadership"
+    },
+    {
+      "id": "backslash",
+      "org": "Backslash Computing Society, TIET",
+      "short": "Backslash",
+      "role": "Technical Head",
+      "on_resume": false,
+      "kind": "leadership",
+      "location": "Patiala, Punjab",
+      "start": "2023-05",
+      "end": "2024-05",
+      "url": "https://www.thapar.edu/",
+      "related_projects": [
+        "zenith"
+      ],
+      "summary": "Technical Head at Backslash Computing Society, Thapar Institute of Engineering and Technology.",
+      "highlights": [],
+      "linkedin": "https://www.linkedin.com/company/backslash-computing-society/",
+      "industry": "Student computing society"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "ev-digital-twin-platform",
+      "name": "EV Digital Twin Platform",
+      "tier": "flagship",
+      "status": "complete",
+      "summary": "A production grade platform that keeps a physical electric vehicle fleet in sync with its digital replicas in real time, combining physics based battery and thermal simulation, normalised telemetry ingestion from 601 vehicles, ML powered battery health prediction and an interactive fleet dashboard.",
+      "tech": [
+        "Go",
+        "Python",
+        "React",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "Machine Learning"
+      ],
+      "areas": [
+        "ai",
+        "backend"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/EV_Digital_Twin"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1787406724/dtwin_gjwcxv.png"
+      },
+      "order": 0,
+      "highlights": [
+        {
+          "id": "telemetry",
+          "text": "Developed a multi-service digital twin platform processing telemetry from **601 vehicles** for battery health monitoring and analytics.",
+          "tags": [
+            "backend",
+            "data",
+            "distributed"
+          ]
+        },
+        {
+          "id": "bilstm",
+          "text": "Implemented a Bidirectional LSTM utilizing **60–80+ telemetry features** to predict battery degradation with **±2% prediction error**.",
+          "tags": [
+            "ml"
+          ]
+        },
+        {
+          "id": "streaming",
+          "text": "Designed streaming APIs and analytics pipelines delivering battery insights with **100–500ms latency**.",
+          "tags": [
+            "backend",
+            "performance"
+          ]
+        },
+        {
+          "id": "physics-ml",
+          "text": "Integrated physics-based battery simulations with machine learning models for degradation forecasting and scenario analysis.",
+          "tags": [
+            "ml",
+            "simulation"
+          ]
+        }
+      ],
+      "note": "Patent Pending"
+    },
+    {
+      "slug": "llm-observability",
+      "name": "LLM Insight Engine",
+      "tier": "flagship",
+      "status": "complete",
+      "summary": "A provider agnostic observability engine for generative AI applications. Rather than coupling a backend to one vendor's SDK wrappers, it emits pure OpenTelemetry spans using the standard GenAI semantic conventions and streams them to Langfuse over OTLP/HTTP, leaving the model adapters free of any tracing logic.",
+      "tech": [
+        "Python",
+        "OpenTelemetry",
+        "Langfuse",
+        "Groq",
+        "Ollama",
+        "LLMs",
+        "Observability"
+      ],
+      "areas": [
+        "ai",
+        "backend"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/LLM-Observability"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1787406776/llmobs_zrmopt.png"
+      },
+      "order": 1,
+      "highlights": [
+        {
+          "id": "middleware",
+          "text": "Developed a provider-agnostic observability middleware supporting **2 inference providers** across cloud and local deployments.",
+          "tags": [
+            "llm",
+            "observability"
+          ]
+        },
+        {
+          "id": "telemetry",
+          "text": "Captured and exported **5 telemetry dimensions** using OpenTelemetry, Langfuse, adapter-based instrumentation, and OTLP exports for unified tracing across heterogeneous LLM providers.",
+          "alts": [
+            "Captured and exported **5 telemetry dimensions** (latency, token usage, prompts, responses, tool calls) using OpenTelemetry and Langfuse."
+          ],
+          "tags": [
+            "observability"
+          ]
+        },
+        {
+          "id": "adapters",
+          "text": "Implemented adapter-based instrumentation and OTLP exports enabling unified tracing across heterogeneous LLM providers.",
+          "overlaps": [
+            "telemetry"
+          ],
+          "tags": [
+            "observability",
+            "backend"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "axiom",
+      "name": "Axiom",
+      "tier": "flagship",
+      "status": "in-progress",
+      "site": true,
+      "summary": "The assistant on this site. It answers from the same validated data the site is built from, using tool calling for projects, experience, contact and navigation. Being rebuilt as a server-side agent with provider fallback, runtime model discovery, tracing and an eval set.",
+      "tech": [
+        "React",
+        "Vite",
+        "Python",
+        "FastAPI",
+        "Hugging Face Spaces",
+        "Groq",
+        "Gemini",
+        "OpenTelemetry",
+        "Langfuse"
+      ],
+      "areas": [
+        "ai",
+        "web"
+      ],
+      "links": {},
+      "media": {
+        "thumbnail": "/projects/axiom.webp"
+      },
+      "order": 2,
+      "category": "AI/ML",
+      "highlights": []
+    },
+    {
+      "slug": "openresponses-mcp",
+      "name": "MCP + OpenResponses Agent",
+      "tier": "flagship",
+      "status": "complete",
+      "summary": "A provider agnostic AI agent that pairs the Model Context Protocol with the OpenAI Responses API spec, so tools are defined once through MCP and become callable by models from any provider, with automatic multi tool chaining, a Streamlit interface and a Dockerised runtime.",
+      "tech": [
+        "Python",
+        "AsyncIO",
+        "MCP",
+        "OpenAI Responses API",
+        "Docker",
+        "Streamlit",
+        "LLMs"
+      ],
+      "areas": [
+        "ai",
+        "backend"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/OpenResponses-MCP"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1787406899/openmcp_jf1ild.png"
+      },
+      "order": 2,
+      "highlights": [
+        {
+          "id": "runtime",
+          "text": "Built a provider-agnostic multi-turn agent runtime supporting **2 LLM providers**, **3 MCP tools**, and workflows spanning up to **8 reasoning iterations**.",
+          "tags": [
+            "agents",
+            "llm"
+          ]
+        },
+        {
+          "id": "orchestration",
+          "text": "Implemented a custom orchestration loop and asynchronous MCP server enabling context reconstruction, tool chaining, and standardized execution of weather, geocoding, and timezone services.",
+          "tags": [
+            "agents",
+            "mcp",
+            "backend"
+          ]
+        },
+        {
+          "id": "loop",
+          "text": "Implemented a custom orchestration loop handling context reconstruction, tool chaining, and iterative reasoning without external agent frameworks.",
+          "overlaps": [
+            "orchestration"
+          ],
+          "tags": [
+            "agents"
+          ]
+        },
+        {
+          "id": "mcp-server",
+          "text": "Architected an asynchronous MCP server exposing weather, geocoding, and timezone services through stdio-based IPC and standardized tool execution interfaces.",
+          "overlaps": [
+            "orchestration"
+          ],
+          "tags": [
+            "mcp",
+            "backend"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "depthpad",
+      "name": "depthpad",
+      "tier": "flagship",
+      "status": "active",
+      "summary": "Turns a Hall-effect keyboard into an analog game controller: how far you press a key becomes how far the stick moves or the trigger pulls, through a virtual Xbox 360 or DualShock 4 controller that works in any game with controller support.",
+      "tech": [
+        "Rust",
+        "Tauri",
+        "Svelte",
+        "TypeScript",
+        "ViGEmBus",
+        "Windows"
+      ],
+      "areas": [
+        "systems",
+        "tools"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/depthpad"
+      },
+      "media": {
+        "thumbnail": "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-mapping.png",
+        "screenshots": [
+          "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-mapping.png",
+          "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-curve.png",
+          "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-live.png",
+          "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-analysis.png"
+        ]
+      },
+      "order": 3,
+      "category": "Systems",
+      "highlights": [
+        {
+          "id": "analog",
+          "text": "Built a Rust and Tauri Windows app that converts Hall-effect key depth into analog stick and trigger travel through a virtual Xbox 360 or DualShock 4 controller.",
+          "tags": [
+            "systems",
+            "rust",
+            "desktop"
+          ]
+        },
+        {
+          "id": "mapper",
+          "text": "Designed a drag-to-map key binder with a live view of controller output and a response-curve editor offering **7 presets** plus anti-deadzone tuning.",
+          "tags": [
+            "frontend",
+            "ux"
+          ]
+        },
+        {
+          "id": "footprint",
+          "text": "Kept the background engine to about **6 MB of memory** and **1% of one CPU core** while polling key travel over USB.",
+          "tags": [
+            "systems",
+            "performance"
+          ]
+        },
+        {
+          "id": "keyboards",
+          "text": "Integrated analog USB protocols covering **269 keyboards from 95 brands**, with a probe tool that lets users report unsupported boards.",
+          "tags": [
+            "systems",
+            "hardware"
+          ]
+        },
+        {
+          "id": "release",
+          "text": "Shipped signed-checksum releases with a driver-bootstrapping installer, portable build and in-app auto-updater, delivering **3 releases** on launch day.",
+          "alts": [
+            "Built the release pipeline (installer that bootstraps the ViGEmBus driver, portable build, SHA-256 checksums, in-app auto-updates)."
+          ],
+          "tags": [
+            "devops",
+            "release"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "zenith",
+      "name": "Zenith",
+      "tier": "flagship",
+      "status": "complete",
+      "summary": "Website for a 3-day tech event organised by Backslash Computing Society, TIET, involving a cryptic hunt.",
+      "tech": [
+        "AWS EC2",
+        "MongoDB",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "Cloudflare",
+        "Nginx",
+        "HTML/CSS"
+      ],
+      "areas": [
+        "web",
+        "backend"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/ZenithCryptic"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1710926784/Screenshot_2024-03-20_145529_wfxto8.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1710926784/Screenshot_2024-03-20_145529_wfxto8.png"
+        ]
+      },
+      "order": 29,
+      "highlights": [
+        {
+          "id": "platform",
+          "text": "Architected and deployed an event platform serving **22k+ attendees**, reducing request processing time by **40%**.",
+          "tags": [
+            "backend",
+            "cloud"
+          ]
+        },
+        {
+          "id": "scale",
+          "text": "Orchestrated backend services and cloud infrastructure to sustain **200k+ requests** during peak event traffic.",
+          "alts": [
+            "Optimized backend services and caching layers to sustain **200k+ requests** during peak event traffic."
+          ],
+          "tags": [
+            "backend",
+            "performance"
+          ]
+        },
+        {
+          "id": "infra",
+          "text": "Designed cloud infrastructure using AWS EC2, Nginx, and Cloudflare to ensure reliable high-availability deployments.",
+          "overlaps": [
+            "scale"
+          ],
+          "tags": [
+            "cloud",
+            "devops"
+          ]
+        }
+      ],
+      "category": "Web Development"
+    },
+    {
+      "slug": "chatsynth",
+      "name": "ChatSynth",
+      "tier": "side",
+      "status": "complete",
+      "summary": "An application that allows one to create their own personalized Q&A chatbot based on a JSON created on the basis of their answers, get the code for it via GitHub, and deploy the chatbot on streamlit, and all of it absolutely free.",
+      "tech": [
+        "Python",
+        "LangChain",
+        "RAG",
+        "Streamlit",
+        "GitHub API",
+        "Groq",
+        "LLMs"
+      ],
+      "areas": [
+        "ai",
+        "web"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/ChatSynth",
+        "live": "https://chatsynth.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1743342489/Untitled_design_19_tlpftz.png"
+      },
+      "order": 3,
+      "highlights": [
+        {
+          "id": "usage",
+          "text": "Built a no-code chatbot generator processing **218+ queries/week** with a **0% error rate**.",
+          "tags": [
+            "llm",
+            "product"
+          ]
+        },
+        {
+          "id": "latency",
+          "text": "Achieved **P50 latency of 0.69s** and **P99 latency of 13.13s**.",
+          "tags": [
+            "performance"
+          ]
+        }
+      ],
+      "category": "AI/ML",
+      "plans": [
+        "Superseded by a modern agent builder (planned flagship): multi-tenant, RBAC, deploys agents to Hugging Face Spaces"
+      ]
+    },
+    {
+      "slug": "anikit",
+      "name": "AniKit",
+      "tier": "side",
+      "status": "in-progress",
+      "summary": "Free anime utilities for MyAnimeList and AniList users: a seasonal Wrapped recap, a swipe-to-build list builder, stats and recommendations. Talks only to the official APIs and stores nothing server-side; the session lives in an encrypted cookie.",
+      "tech": [
+        "TypeScript"
+      ],
+      "areas": [
+        "web"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/anikit"
+      },
+      "media": {},
+      "order": 4,
+      "category": "Web Development",
+      "plans": [
+        "Recommendation engine (possibly using the recommendation model trained earlier)",
+        "Bring-your-own-key AI features"
+      ],
+      "highlights": []
+    },
+    {
+      "slug": "intervue-poll",
+      "name": "Intervue Poll",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A real time teacher and student polling system with server authoritative timers, single vote enforcement, full poll history, integrated chat and participant controls, built to degrade gracefully and stay usable even when the database is unavailable.",
+      "tech": [
+        "React",
+        "Node",
+        "Express",
+        "Socket.IO",
+        "MongoDB"
+      ],
+      "areas": [
+        "web",
+        "backend"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/intervue-poll",
+        "live": "https://intervue-poll-vanshajr.netlify.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1787406741/Screenshot_2026-08-22_191453_j4sqyh.png"
+      },
+      "order": 4,
+      "highlights": []
+    },
+    {
+      "slug": "auralis",
+      "name": "Auralis - Emotion-Controlled Response Generation",
+      "tier": "side",
+      "status": "complete",
+      "summary": "Controllable emotion-conditioned text generation using lightweight conditioning methods on Large Language Models; fine tuned RoBERTa model to classify emotions in text and GPT-2 model to generate responses based on emotions with lightweight conditioning. Models on HuggingFace.",
+      "tech": [
+        "Python",
+        "transformers",
+        "LLM Fine Tuning",
+        "RoBERTa",
+        "GPT-2"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/emotion-controlled-generation",
+        "live": "https://huggingface.co/VanshajR/gpt2-emotion-prefix"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1764144558/Copy_of_generative-ai-project-proposal.pptx_1_oi2kfi.png"
+      },
+      "order": 5,
+      "highlights": [
+        {
+          "id": "models",
+          "text": "Fine-tuned a **7-class** RoBERTa emotion classifier and an emotion-conditioned GPT-2 generator, published on Hugging Face with **190+ downloads**.",
+          "tags": [
+            "ml",
+            "llm",
+            "nlp"
+          ]
+        }
+      ],
+      "stats": {
+        "downloads": 193,
+        "detail": "roberta-emotion-7class 98, gpt2-emotion-prefix 95 (all-time)",
+        "source": "Hugging Face",
+        "checked": "2026-10-16"
+      }
+    },
+    {
+      "slug": "hybrid-knowledge-chatbot",
+      "name": "Hybrid Knowledge-Based Chatbot",
+      "tier": "side",
+      "status": "complete",
+      "summary": "Web and CLI App that uses Neo4j and Pinecone to answer questions about traveling to Vietnam, including planning itineraries, working on hybrid knowledge concept, using free LLM APIs, hosted on streamlit.",
+      "tech": [
+        "Python",
+        "Neo4j",
+        "Pinecone",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Viet-Travel-Hybrid-Knowledge",
+        "live": "https://viet-travel-vanshajr.streamlit.app/"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1764143630/Screenshot_2025-11-26_132337_nijvce.png"
+      },
+      "order": 6,
+      "highlights": []
+    },
+    {
+      "slug": "reactify-meet",
+      "name": "Reactify Meet",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A simple video calling web app built using Vite and WebRTC, with a NodeJS backend using Socket.io for signaling.",
+      "tech": [
+        "JavaScript",
+        "Vite",
+        "WebRTC",
+        "NodeJS",
+        "Socket.io"
+      ],
+      "areas": [
+        "web"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/reactify-backend-ready-main",
+        "live": "https://reactify-meet.netlify.app/"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1764142959/Screenshot_2025-11-26_131152_ymyt3d.png"
+      },
+      "order": 7,
+      "highlights": []
+    },
+    {
+      "slug": "pok3dex",
+      "name": "Pok3Dex",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A Pokemon Guessing Game where you guess the Pokemon by its 3d model, complete with BGMs, textures, other sounds and has a points and timer system. Made in OpenGL.",
+      "tech": [
+        "C++",
+        "OpenGL",
+        "freeglut",
+        "CMake"
+      ],
+      "areas": [
+        "games"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Pok3Dex",
+        "live": "https://mega.nz/file/wMoUnDiI#GiCdqfaongwvNr6NqOVW6QYnfEhxhxXv7JLCEM5hw5k"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1747853795/start_bg_afyqhp.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1747853795/start_bg_afyqhp.png"
+        ]
+      },
+      "order": 8,
+      "highlights": [],
+      "category": "Games"
+    },
+    {
+      "slug": "branchify",
+      "name": "Branchify",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A published python package that creates the folder structure of whichever directory it is used in, with customizable paramters.",
+      "tech": [
+        "pip",
+        "Python"
+      ],
+      "areas": [
+        "tools"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Branchify",
+        "live": "https://pypi.org/project/branchify/"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1738843961/Untitled_design_15_zwyrq2.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1738843961/Untitled_design_15_zwyrq2.png"
+        ]
+      },
+      "order": 9,
+      "highlights": [
+        {
+          "id": "published",
+          "text": "Published a Python package on PyPI that generates a directory tree of any project with customizable filters, reaching **270+ downloads** across **6 releases**.",
+          "tags": [
+            "tools",
+            "python",
+            "product"
+          ]
+        }
+      ],
+      "category": "Developer Tools",
+      "stats": {
+        "downloads": 273,
+        "window": "since 2026-04-08 (pypistats keeps 180 days; excludes mirrors)",
+        "source": "PyPI",
+        "first_release": "2025-02-05",
+        "releases": 6,
+        "checked": "2026-10-16"
+      }
+    },
+    {
+      "slug": "autoquote",
+      "name": "AutoQuote",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A published VS Code Extension that allows for automatic insertion of quotes in the code, with similar additional features.",
+      "tech": [
+        "TypeScript",
+        "VS Code Extensions"
+      ],
+      "areas": [
+        "tools"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/AutoQuote",
+        "live": "https://marketplace.visualstudio.com/items?itemName=VanshajRaghuvanshi.auto-quote"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1738844062/Untitled_design_16_z3so3b.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1738844062/Untitled_design_16_z3so3b.png"
+        ]
+      },
+      "order": 12,
+      "highlights": [
+        {
+          "id": "published",
+          "text": "Published a VS Code extension that auto-inserts and manages quotes while coding, reaching **250+ installs** with a **5.0★** Marketplace rating.",
+          "tags": [
+            "tools",
+            "typescript",
+            "product"
+          ]
+        }
+      ],
+      "category": "Developer Tools",
+      "stats": {
+        "installs": 253,
+        "downloads": 393,
+        "rating": 5,
+        "ratings": 3,
+        "source": "VS Code Marketplace",
+        "checked": "2026-10-16"
+      }
+    },
+    {
+      "slug": "virtuoso",
+      "name": "Virtuoso",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A Discord music bot built for smooth multi-server playback: SoundCloud-first search with direct URL support, per-server queues, stream prefetching for fast track starts, vote-to-skip, instant seek, and role-aware settings, with a health endpoint for free hosting.",
+      "tech": [
+        "Node.js",
+        "discord.js",
+        "@discordjs/voice",
+        "FFmpeg",
+        "Express",
+        "Docker"
+      ],
+      "areas": [
+        "backend"
+      ],
+      "links": {},
+      "media": {},
+      "order": 12,
+      "category": "Bots",
+      "highlights": []
+    },
+    {
+      "slug": "odia-word-embeddings",
+      "name": "Odia Word Embeddings",
+      "tier": "side",
+      "status": "complete",
+      "summary": "Trained Word2Vec and GloVe word embedding models and self curated monolingual dataset for the Odia Language.",
+      "tech": [
+        "Python",
+        "TensorFlow",
+        "Gensim",
+        "NLTK",
+        "Word2Vec",
+        "GloVe",
+        "NLP"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Odia-Word-Embeddings",
+        "live": "https://huggingface.co/VanshajR/odia-word-embeddings"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1747857316/Untitled_design_22_kenwot.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1747857316/Untitled_design_22_kenwot.png"
+        ]
+      },
+      "order": 15,
+      "highlights": [
+        {
+          "id": "corpus",
+          "text": "Curated a monolingual Odia corpus and trained Word2Vec and GloVe embeddings for a low-resource language; the published dataset reached **230+ downloads**.",
+          "tags": [
+            "ml",
+            "nlp",
+            "data"
+          ]
+        }
+      ],
+      "category": "AI/ML",
+      "stats": {
+        "downloads": 238,
+        "detail": "dataset VanshajR/odia-word-embeddings-data (all-time)",
+        "source": "Hugging Face",
+        "checked": "2026-10-16"
+      }
+    },
+    {
+      "slug": "sanjaya-counter",
+      "name": "Sanjaya Counter",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A zero configuration YouTube subscriber overlay for OBS Studio. Everything is set through the URL, the API key stays hidden on the serverless backend, and the resolver accepts handles, legacy usernames or channel IDs, with smooth count animations and quota aware polling.",
+      "tech": [
+        "JavaScript",
+        "HTML/CSS",
+        "Vercel Serverless",
+        "YouTube Data API"
+      ],
+      "areas": [
+        "web",
+        "tools"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Sanjaya-LiveSubCounterOBS",
+        "live": "https://sanjaya-live-sub-counter-obs.vercel.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1787406740/Screenshot_2026-08-22_191851_amhugm.png"
+      },
+      "order": 26,
+      "highlights": []
+    },
+    {
+      "slug": "warzone-elimination",
+      "name": "Warzone Elimination",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A Call of Duty themed randomiser that eliminates options one at a time instead of simply picking a winner, with a Gulag to track the fallen, cinematic reveals for the final two, animations that never repeat back to back and media pre fetched on launch for zero latency playback.",
+      "tech": [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Zustand",
+        "Framer Motion"
+      ],
+      "areas": [
+        "web"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/warzone-elimination",
+        "live": "https://warzone.vanshajraghuvanshi.dev"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1787406740/Screenshot_2026-08-22_192011_zp9cto.png"
+      },
+      "order": 27,
+      "highlights": []
+    },
+    {
+      "slug": "spin-the-wheel",
+      "name": "Spin the Wheel",
+      "tier": "side",
+      "status": "complete",
+      "summary": "A fun web app that I made to help some streamers who conduct giveaways using a spinning wheel, allows for OCR based item extraction from images, a casino themed look and feel to be engaging, and multiple operational modes.",
+      "tech": [
+        "JavaScript",
+        "ReactJS",
+        "CSS",
+        "HTML"
+      ],
+      "areas": [
+        "web"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/spin-the-wheel",
+        "live": "https://casino.vanshajraghuvanshi.dev/"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1764143869/Screenshot_2025-11-26_132734_t9cine.png"
+      },
+      "order": 28,
+      "highlights": []
+    },
+    {
+      "slug": "nexus-q-a",
+      "name": "Nexus Q&A",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A chatbot that uses LLMs and RAG to answer questions about me, do check it out. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "LangChain",
+        "Streamlit",
+        "RAG",
+        "LLMs"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Nexus-QA",
+        "live": "https://chat-nexus.streamlit.app/"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1743342496/Untitled_design_20_qiv1k4.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1743342496/Untitled_design_20_qiv1k4.png"
+        ]
+      },
+      "order": 10,
+      "highlights": [],
+      "category": "AI/ML"
+    },
+    {
+      "slug": "chatpdf",
+      "name": "ChatPDF",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A streamlit app where you can upload PDFs and then send queries about their content, which will be answered.",
+      "tech": [
+        "Python",
+        "LangChain",
+        "LLMs",
+        "Streamlit",
+        "RAG"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/ChatPDF",
+        "live": "https://pdfchat-vanshajr.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1743343204/Untitled_design_21_geu9y4.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1743343204/Untitled_design_21_geu9y4.png"
+        ]
+      },
+      "order": 11,
+      "highlights": [],
+      "category": "AI/ML"
+    },
+    {
+      "slug": "object-detection",
+      "name": "Object Detection",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A Python GUI application which identifies objects of the COCO dataset for both live feed and images. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "CustomTkinter",
+        "OpenCV",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/ObjectDetection",
+        "live": "https://objects-vanshajr.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1720448613/WhatsApp_Image_2024-07-08_at_19.52.33_282e22fc_ieyuto.jpg",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1720448613/WhatsApp_Image_2024-07-08_at_19.52.33_282e22fc_ieyuto.jpg"
+        ]
+      },
+      "order": 13,
+      "highlights": [],
+      "category": "Computer Vision"
+    },
+    {
+      "slug": "healix",
+      "name": "Healix",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A Python GUI application with a robust PostgreSQL backend which allows managing patient/staff records and appointments.",
+      "tech": [
+        "Python",
+        "CustomTkinter",
+        "PostgreSQL",
+        "PL/pgSQL"
+      ],
+      "areas": [
+        "backend"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Healix"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1714848671/Screenshot_2024-05-05_001753_mmi8dg.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1714848671/Screenshot_2024-05-05_001753_mmi8dg.png"
+        ]
+      },
+      "order": 14,
+      "highlights": [],
+      "category": "Desktop Applications"
+    },
+    {
+      "slug": "audio-emotion-recognition",
+      "name": "Audio Emotion Recognition",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "Emotion classification for audio samples, trained on the RAVDESS Dataset. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "ASR",
+        "Librosa",
+        "PyTorch",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/UCS749-Audio-Sentiment-Analysis",
+        "live": "https://audio-sentiment-vanshajr.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1747857316/Untitled_design_23_g1di1a.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1747857316/Untitled_design_23_g1di1a.png"
+        ]
+      },
+      "order": 16,
+      "highlights": [],
+      "category": "AI/ML"
+    },
+    {
+      "slug": "image-enhancement-techniques",
+      "name": "Image Enhancement Techniques",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A streamlit app that applies image enhancement techniques such as DCP, CLAHE, Gamma Correction, Bilateral Filtering and Histogram Equalization on attached images.",
+      "tech": [
+        "Python",
+        "OpenCV",
+        "Tensorflow",
+        "NumPy",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Image-Enhancement",
+        "live": "https://image-enhancement-techniques.streamlit.app/"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1756491207/Untitled_design_25_cs3fva.png"
+      },
+      "order": 17,
+      "highlights": []
+    },
+    {
+      "slug": "revig-ciphers",
+      "name": "ReVig and Neural Network Ciphers",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A streamlit app that allows for encryption and decryption of text through a modified vignette cipher and a neural network cipher that I made myself.",
+      "tech": [
+        "Python",
+        "ANN",
+        "Tensorflow",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Ciphers",
+        "live": "https://cipher-vanshajr.streamlit.app/"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1739251998/Screenshot_2025-02-11_110157_in70yu.png"
+      },
+      "order": 18,
+      "highlights": []
+    },
+    {
+      "slug": "movie-review-classification",
+      "name": "Movie Review Classification",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "Movie review classification using a trained Recurrent Neural Network. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "RNN",
+        "Tensorflow",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/RNN-Review-Classification",
+        "live": "https://review-classify.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1736880718/Screenshot_2025-01-15_002147_bdbzfv.png"
+      },
+      "order": 19,
+      "highlights": []
+    },
+    {
+      "slug": "handwritten-digit-recognition",
+      "name": "Handwritten Digit Recognition",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "An application that uses a trained LightGBM model to predict handwritten digits from uploaded images, and visualizes results. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "LightGBM",
+        "PCA",
+        "Matplotlib/seaborn",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Digit-Recognition-LightGBM",
+        "live": "https://vanshajr-digit-recognition-lightgbm-app-99enas.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1736880661/Screenshot_2025-01-15_002053_rcecex.png"
+      },
+      "order": 20,
+      "highlights": []
+    },
+    {
+      "slug": "next-word-prediction",
+      "name": "Next Word Prediction",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "An application trained on the Hamlet corpus using an LSTM model to predict the next word in a sentence. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "LSTM",
+        "Tensorflow",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/LSTM-Next-Word",
+        "live": "https://vanshajr-lstm-next-word-app-yrrb4v.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1736880606/Screenshot_2025-01-15_001959_g8khbo.png"
+      },
+      "order": 21,
+      "highlights": []
+    },
+    {
+      "slug": "ann-implementation",
+      "name": "Artificial Neural Network Implementation",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "An application that uses a trained ANN model to predict the possibility of a customer leaving or staying with a company based on a dataset. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "ANN",
+        "Tensrflow",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/ANN-Implementation",
+        "live": "https://ann-prac-vanshajr.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1736873193/Screenshot_2025-01-14_221527_olnzal.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1736873193/Screenshot_2025-01-14_221527_olnzal.png"
+        ]
+      },
+      "order": 22,
+      "highlights": [],
+      "category": "AI/ML"
+    },
+    {
+      "slug": "pneumonia-detection",
+      "name": "Pneumonia Detection",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "An application that uses a trained Convolutional Neural Network to predict whether uploaded X-Ray images exhibit pneumonia, and compares the results obtained via PCA, SVM and Logistic Regression as well. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "Tensorflow",
+        "sklearn",
+        "CNN",
+        "PCA",
+        "SVM",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Pneumonia_Detection",
+        "live": "https://pneumonia-vanshajr.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1736880532/Screenshot_2025-01-15_001844_tbphoh.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1736880532/Screenshot_2025-01-15_001844_tbphoh.png"
+        ]
+      },
+      "order": 23,
+      "highlights": [],
+      "category": "AI/ML"
+    },
+    {
+      "slug": "cypher-the-chatbot",
+      "name": "Cypher the ChatBot",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A rule based chatbot trained using PyTorch and NLP techniques that answers questions about me, uses neural networks. Hosted on streamlit",
+      "tech": [
+        "Python",
+        "PyTorch",
+        "NLP(nltk)",
+        "Streamlit"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/ChatBot",
+        "live": "https://cypher-chat.streamlit.app"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1736880475/Screenshot_2025-01-15_001737_fze7hg.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1736880475/Screenshot_2025-01-15_001737_fze7hg.png"
+        ]
+      },
+      "order": 24,
+      "highlights": [],
+      "category": "AI/ML"
+    },
+    {
+      "slug": "facial-recognition",
+      "name": "Facial Recognition",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "A Python application which allows for training of a TensorFlow/Keras model and detect faces in the trained dataset; works for both live feed and images.",
+      "tech": [
+        "Python",
+        "CustomTkinter",
+        "OpenCV",
+        "TensorFlow"
+      ],
+      "areas": [
+        "ai"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/FacialRecognition"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1720448742/Screenshot_2024-07-08_195452_qgqnfj.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1720448742/Screenshot_2024-07-08_195452_qgqnfj.png"
+        ]
+      },
+      "order": 25,
+      "highlights": [],
+      "category": "Computer Vision"
+    },
+    {
+      "slug": "physics-experiments-solver",
+      "name": "Physics Experiments Solver",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "Python GUI application that solves and visualises specific experiments I had in my first year in physics.",
+      "tech": [
+        "Python",
+        "Tkinter",
+        "Matplotlib"
+      ],
+      "areas": [
+        "tools"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/Physics-Experiment-Result-Visualiser"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1710927181/Screenshot_2024-03-20_150236_uooysj.png",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1710927181/Screenshot_2024-03-20_150236_uooysj.png"
+        ]
+      },
+      "order": 30,
+      "highlights": [],
+      "category": "Desktop Applications"
+    },
+    {
+      "slug": "linear-equations-solver",
+      "name": "Linear Equations Solver",
+      "tier": "archive",
+      "status": "complete",
+      "summary": "Android app that can solve a system of linear equations upto 20 variables.",
+      "tech": [
+        "Java",
+        "XML",
+        "Android Studio"
+      ],
+      "areas": [
+        "tools"
+      ],
+      "links": {
+        "code": "https://github.com/VanshajR/LinearEquationSolver"
+      },
+      "media": {
+        "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1710926227/appls_rtgpzb.jpg",
+        "screenshots": [
+          "https://res.cloudinary.com/dnciaoigz/image/upload/v1710926227/appls_rtgpzb.jpg"
+        ]
+      },
+      "order": 31,
+      "highlights": [],
+      "category": "Mobile Apps"
+    }
+  ],
+  "skills": {
+    "groups": {
+      "Languages": [
+        "Python",
+        "C++",
+        "JavaScript",
+        "TypeScript",
+        "Go",
+        "Rust",
+        "SQL"
+      ],
+      "Backend": [
+        "FastAPI",
+        "Node.js",
+        "Express",
+        "Fastify",
+        "Socket.IO",
+        "WebRTC",
+        "REST APIs",
+        "AsyncIO"
+      ],
+      "AI Systems": [
+        "OpenAI Responses API",
+        "MCP",
+        "Agentic AI",
+        "Tool Calling",
+        "RAG",
+        "LangChain",
+        "OpenTelemetry",
+        "Langfuse",
+        "Hugging Face"
+      ],
+      "AI/ML": [
+        "PyTorch",
+        "TensorFlow",
+        "LSTM",
+        "ViT",
+        "GANs",
+        "Transformers",
+        "OpenCV",
+        "scikit-learn"
+      ],
+      "Cloud": [
+        "AWS",
+        "GCP",
+        "Docker",
+        "Kubernetes",
+        "Cloudflare",
+        "Vercel",
+        "Nginx",
+        "GitHub Actions"
+      ],
+      "Databases": [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Redis",
+        "FAISS",
+        "Neo4j",
+        "Pinecone"
+      ],
+      "Frontend": [
+        "React",
+        "Vite",
+        "Svelte",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+      "Testing": [
+        "Pytest",
+        "pytest-asyncio",
+        "Jest",
+        "Postman"
+      ]
+    },
+    "also": [
+      "Java",
+      "R",
+      "C",
+      "Django",
+      "NumPy",
+      "Pandas",
+      "Streamlit",
+      "Jupyter",
+      "NLTK",
+      "Tauri",
+      "Git",
+      "Discord"
+    ]
+  },
+  "achievements": [
+    {
+      "id": "sih",
+      "text": "Qualified for Smart India Hackathon (SIH) in 2023 and 2024",
+      "year": 2024
+    },
+    {
+      "id": "scholarship",
+      "text": "Awarded a **₹2 lakh** scholarship for academic excellence (2nd year)",
+      "year": 2024
+    },
+    {
+      "id": "gold-medal",
+      "text": "Gold Medalist, Class XII (CBSE), **98%** in PCM and Computer Science",
+      "year": 2021
+    }
+  ]
+}
