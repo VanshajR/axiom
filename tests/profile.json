@@ -1,0 +1,521 @@
+{
+ "profile": {
+  "name": "Vanshaj Raghuvanshi",
+  "headline": "Software Engineer | AI Systems, Agentic Workflows, and Cloud/Backend Infrastructure",
+  "email": "vanshajraghuvanshi@gmail.com",
+  "website": "https://vanshajraghuvanshi.dev",
+  "open_to_work": true,
+  "links": {
+   "github": "https://github.com/VanshajR",
+   "linkedin": "https://www.linkedin.com/in/vanshajraghuvanshi/",
+   "instagram": "https://www.instagram.com/vanshajr_0410",
+   "myanimelist": "https://myanimelist.net/animelist/VanshajR"
+  },
+  "bio": "Software engineer focused on Generative AI and agentic systems, with hands on experience across AI infrastructure, backend and cloud. Builds AI agents, tool calling pipelines and RAG systems, instruments them with provider agnostic observability, and ships the distributed backends behind them, with an emphasis on reliability, performance, and production-ready design. Computer Science and Engineering graduate, previously at DXFactor and DRDO.",
+  "about": "Hi, I'm **Vanshaj Raghuvanshi**, a **software engineer** working on Generative AI and **agentic systems**. I build AI agents, tool calling pipelines and RAG systems, along with the infrastructure they run on: **provider agnostic observability, distributed backends, and secure data access**, with a strong emphasis on reliability, performance, and production-ready design. Most recently I worked on **AI agents and infrastructure** at DXFactor, and on AI research and development at DRDO.",
+  "hobbies": {
+   "Reading": "Adventure, horror and fantasy. Favourites include Harry Potter, A Song of Ice and Fire, Enid Blyton, the Peculiar Children series and Stephen King.",
+   "Gaming": "Mostly multiplayer FPS (CoD, Apex, PUBG, Rainbow Six Siege) on mobile and PC, plus story games like the Spider-Man series and GTA.",
+   "Movies and series": "Hollywood and Bollywood classics, the MCU, Game of Thrones, Stranger Things.",
+   "Anime": "Avid watcher across genres. Favourites include Attack on Titan, Orb: On the Movements of the Earth, Vinland Saga, Dr. Stone, Frieren and Sword Art Online.",
+   "Music": "Rock, pop, occasionally metal and EDM. Arijit Singh, Atif Aslam, Linkin Park, Ed Sheeran and some Japanese artists."
+  }
+ },
+ "education": [
+  {
+   "id": "tiet",
+   "institution": "Thapar Institute of Engineering and Technology",
+   "short": "TIET",
+   "degree": "B.E. Computer Science",
+   "location": "Patiala, Punjab",
+   "start": "2022-09",
+   "end": "2026-07",
+   "score": "CGPA 9.00/10",
+   "url": "https://www.thapar.edu/",
+   "linkedin": "https://www.linkedin.com/school/tietofficial/",
+   "industry": "Higher education, computer science",
+   "summary": "BE Computer Science Engineering, Thapar Institute of Engineering and Technology. CGPA 9.00/10."
+  }
+ ],
+ "experience": [
+  {
+   "id": "dxfactor",
+   "org": "DXFactor",
+   "role": "Software Engineer Intern",
+   "site_role": "Software Engineering Intern",
+   "kind": "work",
+   "location": "Ahmedabad, Gujarat",
+   "start": "2026-02",
+   "end": "2026-06",
+   "url": "https://dxfactor.com",
+   "industry": "Fitness tech, AI agents",
+   "summary": "Software Engineering Intern at DXFactor, a fitness tech company, part of the DXPartners group. Worked on AI agents and infrastructure.",
+   "highlights": [
+    {
+     "id": "routing",
+     "text": "Engineered and validated a provider-agnostic routing layer supporting **3 LLM providers** (OpenAI, Anthropic, Gemini), standardizing responses and agentic tool execution workflows.",
+     "tags": [
+      "llm",
+      "backend",
+      "agents"
+     ]
+    },
+    {
+     "id": "voice-agents",
+     "text": "Built and tested a multi-tenant AI voice-agent platform integrating ElevenLabs, Twilio, FastAPI, and PostgreSQL with **6+ backend tools** for lead capture, appointment scheduling, and CRM automation.",
+     "tags": [
+      "agents",
+      "backend",
+      "voice"
+     ]
+    },
+    {
+     "id": "rag",
+     "text": "Constructed a secure RAG platform with RBAC and tenant isolation supporting queries across **5,000+ enterprise documents**.",
+     "alts": [
+      "Engineered a multi-tenant RAG system with Role-Based Access Control (RBAC) enabling secure querying over **5,000+ documents**."
+     ],
+     "tags": [
+      "rag",
+      "security",
+      "backend"
+     ]
+    },
+    {
+     "id": "pocs",
+     "text": "Created POCs using OpenResponses, MCP tools, and agent frameworks to evaluate provider interoperability, tool-calling behavior, and enterprise AI workflows.",
+     "alts": [
+      "Developed POCs on a provider-agnostic, distributed AI platform using agent frameworks (OpenResponses, MCP tools) with product and engineering teams to ensure client alignment and feasibility."
+     ],
+     "tags": [
+      "agents",
+      "mcp"
+     ]
+    },
+    {
+     "id": "summarization",
+     "text": "Built summarization pipelines to process outputs from internal AI agents and resolve workflow issues.",
+     "tags": [
+      "llm",
+      "pipelines"
+     ]
+    },
+    {
+     "id": "isolation-tests",
+     "text": "Designed asynchronous validation and testing workflows, including cross-tenant isolation checks and unit and integration tests, ensuring zero data leakage.",
+     "overlaps": [
+      "rag"
+     ],
+     "tags": [
+      "testing",
+      "security"
+     ]
+    },
+    {
+     "id": "rag-throughput",
+     "text": "Achieved **1,700+ req/sec** on the multi-tenant RAG platform and reduced lookup latency by **57%** via Redis caching.",
+     "tags": [
+      "performance",
+      "backend"
+     ]
+    },
+    {
+     "id": "sandbox",
+     "text": "Designed a sandboxed execution layer for safe LLM-generated code execution, enabling tool-based reasoning over structured data with Pandas.",
+     "tags": [
+      "agents",
+      "security"
+     ]
+    }
+   ],
+   "linkedin": "https://www.linkedin.com/company/dxfactor/"
+  },
+  {
+   "id": "drdo",
+   "org": "Defence Research and Development Organisation (DRDO)",
+   "short": "DRDO",
+   "role": "Artificial Intelligence Intern",
+   "site_role": "AI Research and Development Intern",
+   "kind": "work",
+   "location": "Dehradun, Uttarakhand",
+   "start": "2025-06",
+   "end": "2026-02",
+   "url": "https://www.drdo.gov.in",
+   "industry": "Defence research",
+   "summary": "AI Research and Development Intern at DRDO (Defence Research and Development Organisation), India.",
+   "highlights": [
+    {
+     "id": "occlusion",
+     "text": "Leveraged **GANs and Vision Transformers (ViT)** for occluded image completion and independently delivered a high-priority computer vision project.",
+     "alts": [
+      "Leveraged GAN and Vision Transformer (ViT) models to enhance occluded image completion accuracy."
+     ],
+     "tags": [
+      "cv",
+      "ml"
+     ]
+    },
+    {
+     "id": "dataset",
+     "text": "Generated and curated large-scale datasets (**20k+** images) improving robustness of AI pipelines.",
+     "tags": [
+      "data",
+      "ml"
+     ]
+    }
+   ],
+   "linkedin": "https://www.linkedin.com/company/drdo-ministry-of-defence-govt-of-india/"
+  },
+  {
+   "id": "ticc",
+   "org": "Thapar Institute Counselling Cell",
+   "short": "TICC",
+   "role": "Technical Lead and Mental Health Student Ambassador",
+   "site_role": "Technical Lead and Mental Health Ambassador",
+   "on_resume": "optional",
+   "kind": "leadership",
+   "location": "Patiala, Punjab",
+   "start": "2024-05",
+   "end": "2025-12",
+   "url": "https://ticc.thapar.edu/",
+   "summary": "Technical Lead and Mental Health Ambassador at Thapar Institute Counselling Cell, TIET.",
+   "highlights": [
+    {
+     "id": "android-app",
+     "text": "Spearheaded Android application launch and led technical initiatives.",
+     "tags": [
+      "leadership"
+     ]
+    }
+   ],
+   "linkedin": "https://www.linkedin.com/company/thapar-institute-counselling-cell",
+   "industry": "Student wellness, community leadership"
+  }
+ ],
+ "projects": [
+  {
+   "slug": "ev-digital-twin-platform",
+   "name": "EV Digital Twin Platform",
+   "tier": "flagship",
+   "status": "complete",
+   "summary": "A production grade platform that keeps a physical electric vehicle fleet in sync with its digital replicas in real time, combining physics based battery and thermal simulation, normalised telemetry ingestion from 601 vehicles, ML powered battery health prediction and an interactive fleet dashboard.",
+   "tech": [
+    "Go",
+    "Python",
+    "React",
+    "MongoDB",
+    "Redis",
+    "Docker",
+    "Machine Learning"
+   ],
+   "areas": [
+    "ai",
+    "backend"
+   ],
+   "links": {
+    "code": "https://github.com/VanshajR/EV_Digital_Twin"
+   },
+   "media": {
+    "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1787406724/dtwin_gjwcxv.png"
+   },
+   "order": 0,
+   "highlights": [
+    {
+     "id": "telemetry",
+     "text": "Developed a multi-service digital twin platform processing telemetry from **601 vehicles** for battery health monitoring and analytics.",
+     "tags": [
+      "backend",
+      "data",
+      "distributed"
+     ]
+    },
+    {
+     "id": "bilstm",
+     "text": "Implemented a Bidirectional LSTM utilizing **60–80+ telemetry features** to predict battery degradation with **±2% prediction error**.",
+     "tags": [
+      "ml"
+     ]
+    },
+    {
+     "id": "streaming",
+     "text": "Designed streaming APIs and analytics pipelines delivering battery insights with **100–500ms latency**.",
+     "tags": [
+      "backend",
+      "performance"
+     ]
+    },
+    {
+     "id": "physics-ml",
+     "text": "Integrated physics-based battery simulations with machine learning models for degradation forecasting and scenario analysis.",
+     "tags": [
+      "ml",
+      "simulation"
+     ]
+    }
+   ],
+   "note": "Patent Pending"
+  },
+  {
+   "slug": "axiom",
+   "name": "Axiom",
+   "tier": "flagship",
+   "status": "in-progress",
+   "site": true,
+   "summary": "The assistant on this site. It answers from the same validated data the site is built from, using tool calling for projects, experience, contact and navigation. Being rebuilt as a server-side agent with provider fallback, runtime model discovery, tracing and an eval set.",
+   "tech": [
+    "React",
+    "Vite",
+    "Python",
+    "FastAPI",
+    "Hugging Face Spaces",
+    "Groq",
+    "Gemini",
+    "OpenTelemetry",
+    "Langfuse"
+   ],
+   "areas": [
+    "ai",
+    "web"
+   ],
+   "links": {},
+   "media": {
+    "thumbnail": "/projects/axiom.webp"
+   },
+   "order": 2,
+   "category": "AI/ML",
+   "highlights": []
+  },
+  {
+   "slug": "depthpad",
+   "name": "depthpad",
+   "tier": "flagship",
+   "status": "active",
+   "summary": "Turns a Hall-effect keyboard into an analog game controller: how far you press a key becomes how far the stick moves or the trigger pulls, through a virtual Xbox 360 or DualShock 4 controller that works in any game with controller support.",
+   "tech": [
+    "Rust",
+    "Tauri",
+    "Svelte",
+    "TypeScript",
+    "ViGEmBus",
+    "Windows"
+   ],
+   "areas": [
+    "systems",
+    "tools"
+   ],
+   "links": {
+    "code": "https://github.com/VanshajR/depthpad"
+   },
+   "media": {
+    "thumbnail": "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-mapping.png",
+    "screenshots": [
+     "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-mapping.png",
+     "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-curve.png",
+     "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-live.png",
+     "https://raw.githubusercontent.com/VanshajR/depthpad/main/docs/screenshot-analysis.png"
+    ]
+   },
+   "order": 3,
+   "category": "Systems",
+   "highlights": [
+    {
+     "id": "analog",
+     "text": "Built a Rust and Tauri Windows app that converts Hall-effect key depth into analog stick and trigger travel through a virtual Xbox 360 or DualShock 4 controller.",
+     "tags": [
+      "systems",
+      "rust",
+      "desktop"
+     ]
+    },
+    {
+     "id": "mapper",
+     "text": "Designed a drag-to-map key binder with a live view of controller output and a response-curve editor offering **7 presets** plus anti-deadzone tuning.",
+     "tags": [
+      "frontend",
+      "ux"
+     ]
+    },
+    {
+     "id": "footprint",
+     "text": "Kept the background engine to about **6 MB of memory** and **1% of one CPU core** while polling key travel over USB.",
+     "tags": [
+      "systems",
+      "performance"
+     ]
+    },
+    {
+     "id": "keyboards",
+     "text": "Integrated analog USB protocols covering **269 keyboards from 95 brands**, with a probe tool that lets users report unsupported boards.",
+     "tags": [
+      "systems",
+      "hardware"
+     ]
+    },
+    {
+     "id": "release",
+     "text": "Shipped signed-checksum releases with a driver-bootstrapping installer, portable build and in-app auto-updater, delivering **3 releases** on launch day.",
+     "alts": [
+      "Built the release pipeline (installer that bootstraps the ViGEmBus driver, portable build, SHA-256 checksums, in-app auto-updates)."
+     ],
+     "tags": [
+      "devops",
+      "release"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "anikit",
+   "name": "AniKit",
+   "tier": "side",
+   "status": "in-progress",
+   "summary": "Free anime utilities for MyAnimeList and AniList users: a seasonal Wrapped recap, a swipe-to-build list builder, stats and recommendations. Talks only to the official APIs and stores nothing server-side; the session lives in an encrypted cookie.",
+   "tech": [
+    "TypeScript"
+   ],
+   "areas": [
+    "web"
+   ],
+   "links": {
+    "code": "https://github.com/VanshajR/anikit"
+   },
+   "media": {},
+   "order": 4,
+   "category": "Web Development",
+   "plans": [
+    "Recommendation engine (possibly using the recommendation model trained earlier)",
+    "Bring-your-own-key AI features"
+   ],
+   "highlights": []
+  },
+  {
+   "slug": "pneumonia-detection",
+   "name": "Pneumonia Detection",
+   "tier": "archive",
+   "status": "complete",
+   "summary": "An application that uses a trained Convolutional Neural Network to predict whether uploaded X-Ray images exhibit pneumonia, and compares the results obtained via PCA, SVM and Logistic Regression as well. Hosted on streamlit",
+   "tech": [
+    "Python",
+    "Tensorflow",
+    "sklearn",
+    "CNN",
+    "PCA",
+    "SVM",
+    "Streamlit"
+   ],
+   "areas": [
+    "ai"
+   ],
+   "links": {
+    "code": "https://github.com/VanshajR/Pneumonia_Detection",
+    "live": "https://pneumonia-vanshajr.streamlit.app"
+   },
+   "media": {
+    "thumbnail": "https://res.cloudinary.com/dnciaoigz/image/upload/f_auto,q_auto,w_800/v1736880532/Screenshot_2025-01-15_001844_tbphoh.png",
+    "screenshots": [
+     "https://res.cloudinary.com/dnciaoigz/image/upload/v1736880532/Screenshot_2025-01-15_001844_tbphoh.png"
+    ]
+   },
+   "order": 23,
+   "highlights": [],
+   "category": "AI/ML"
+  }
+ ],
+ "skills": {
+  "groups": {
+   "Languages": [
+    "Python",
+    "C++",
+    "JavaScript",
+    "TypeScript",
+    "Go",
+    "Rust",
+    "SQL"
+   ],
+   "Backend": [
+    "FastAPI",
+    "Node.js",
+    "Express",
+    "Fastify",
+    "Socket.IO",
+    "WebRTC",
+    "REST APIs",
+    "AsyncIO"
+   ],
+   "AI Systems": [
+    "OpenAI Responses API",
+    "MCP",
+    "Agentic AI",
+    "Tool Calling",
+    "RAG",
+    "LangChain",
+    "OpenTelemetry",
+    "Langfuse",
+    "Hugging Face"
+   ],
+   "AI/ML": [
+    "PyTorch",
+    "TensorFlow",
+    "LSTM",
+    "ViT",
+    "GANs",
+    "Transformers",
+    "OpenCV",
+    "scikit-learn"
+   ],
+   "Cloud": [
+    "AWS",
+    "GCP",
+    "Docker",
+    "Kubernetes",
+    "Cloudflare",
+    "Vercel",
+    "Nginx",
+    "GitHub Actions"
+   ],
+   "Databases": [
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Redis",
+    "FAISS",
+    "Neo4j",
+    "Pinecone"
+   ],
+   "Frontend": [
+    "React",
+    "Vite",
+    "Svelte",
+    "Tailwind CSS",
+    "Framer Motion"
+   ],
+   "Testing": [
+    "Pytest",
+    "pytest-asyncio",
+    "Jest",
+    "Postman"
+   ]
+  },
+  "also": [
+   "Java",
+   "R",
+   "C",
+   "Django",
+   "NumPy",
+   "Pandas",
+   "Streamlit",
+   "Jupyter",
+   "NLTK",
+   "Tauri",
+   "Git",
+   "Discord"
+  ]
+ },
+ "achievements": [
+  {
+   "id": "sih",
+   "text": "Qualified for Smart India Hackathon (SIH) in 2023 and 2024",
+   "year": 2024
+  }
+ ]
+}
