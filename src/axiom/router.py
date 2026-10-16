@@ -22,9 +22,11 @@ log = logging.getLogger("axiom.router")
 # Order matters: fast and capable first, then the other provider, then the small fallbacks.
 PREFERENCES: list[tuple[str, str]] = [
     ("groq", r"openai/gpt-oss-120b"),
+    ("cerebras", r"gpt-oss-120b"),  # same model, separate free quota
     ("gemini", r"gemini-\d+(\.\d+)?-flash"),
     ("groq", r"qwen/qwen\d+(\.\d+)*-\d+b"),
     ("gemini", r"gemini-flash-latest"),
+    ("cerebras", r"qwen-3-\d+b-a\d+b-instruct.*"),
     ("groq", r"openai/gpt-oss-20b"),
     ("gemini", r"gemini-\d+(\.\d+)?-flash-lite"),
 ]

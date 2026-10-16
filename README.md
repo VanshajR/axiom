@@ -31,6 +31,7 @@ pip install -e ".[dev]"
 cp .env.example .env                                # free keys from Groq and Google AI Studio
 uvicorn axiom.app:app --port 8100
 pytest
+python evals/run.py                                 # 26 real questions against the running server
 ```
 
 Why it's built the way it is: [docs/decisions.md](docs/decisions.md).

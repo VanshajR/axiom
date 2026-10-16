@@ -10,6 +10,7 @@ def _list(value: str) -> list[str]:
 class Settings:
     groq_api_key: str = os.getenv("GROQ_API_KEY", "")
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
+    cerebras_api_key: str = os.getenv("CEREBRAS_API_KEY", "")
     # where the site publishes its data (data/*.yaml -> public/profile.json)
     profile_url: str = os.getenv("PROFILE_URL", "https://vanshajraghuvanshi.dev/profile.json")
     allowed_origins: list[str] = field(

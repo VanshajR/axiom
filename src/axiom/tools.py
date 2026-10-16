@@ -63,7 +63,7 @@ def _json(value) -> str:
 
 @mcp.tool()
 async def get_overview() -> str:
-    """Who Vanshaj is: headline, short bio, whether he's open to work, and links. Start here for broad questions."""
+    """Who Vanshaj is: headline, short bio, whether he's open to work, interests outside work, and links. Start here for broad questions."""
     data = await store.get()
     me = data["profile"]
     latest = next((e for e in data["experience"] if e["kind"] == "work"), None)
@@ -73,8 +73,14 @@ async def get_overview() -> str:
         "about": me.get("about") or me["bio"],
         "open_to_work": me.get("open_to_work", False),
         "most_recent_role": latest and f"{latest.get('site_role') or latest['role']}, {latest['org']}",
+        "outside_work": me.get("hobbies", {}),
         "links": {**me["links"], "email": me["email"], "website": me["website"]},
     })
+
+
+def _first_sentence(text: str) -> str:
+    match = re.match(r"(.+?[.!?])(\s|$)", text.strip())
+    return match.group(1) if match else text
 
 
 @mcp.tool()
@@ -94,7 +100,9 @@ async def list_projects(area: str = "", include_earlier: bool = False) -> str:
             "tier": "main" if p["tier"] == "flagship" else "other" if p["tier"] == "side" else "earlier",
             "status": p["status"],
             "areas": p.get("areas", []),
-            "summary": p["summary"],
+            # first sentence only: the list is the biggest tool result, and free tiers
+            # count tokens per minute. get_project has the rest.
+            "summary": _first_sentence(p["summary"]),
             "page_anchor": f"#project-{_slug(p['name'])}",
         }
         for p in projects

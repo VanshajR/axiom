@@ -275,3 +275,8 @@ async def test_public_mcp_answers_at_mcp_without_a_redirect():
     assert r.status_code == 200
     names = {t["name"] for t in r.json()["result"]["tools"]}
     assert "get_project" in names and "send_email" not in names
+
+
+async def test_project_list_keeps_summaries_to_one_sentence():
+    listed = json.loads(await tools.call("list_projects", {}))
+    assert listed and all(p["summary"].count(". ") == 0 for p in listed)

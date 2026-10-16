@@ -106,3 +106,24 @@ def test_extra_content_only_goes_to_providers_that_understand_it():
     gemini = OpenAICompatible("gemini", "http://x", "k", http=None, echoes_extra=True)
     assert "extra_content" not in groq._prepare(history)[0]["tool_calls"][0]
     assert "extra_content" in gemini._prepare(history)[0]["tool_calls"][0]
+
+
+def test_gemini_accepts_tool_calls_another_provider_made():
+    # Groq called a tool, hit its limit, and the answer moved to Gemini
+    history = [{"role": "assistant", "tool_calls": [{"id": "1", "function": {}}]}]
+    gemini = OpenAICompatible("gemini", "http://x", "k", http=None, echoes_extra=True)
+    sent = gemini._prepare(history)[0]["tool_calls"][0]
+    assert sent["extra_content"]["google"]["thought_signature"] == "skip_thought_signature_validator"
+    assert "extra_content" not in history[0]["tool_calls"][0]  # the shared history is left alone
+
+
+def test_cerebras_joins_the_ranking_when_it_has_a_key():
+    cerebras = FakeProvider("cerebras", [], [])
+    groq = FakeProvider("groq", [], [])
+    ranked = rank(
+        {"groq": ["openai/gpt-oss-120b"], "cerebras": ["gpt-oss-120b", "qwen-3-235b-a22b-instruct-2507", "llama3.1-8b"]},
+        {"groq": groq, "cerebras": cerebras},
+    )
+    keys = [c.key for c in ranked]
+    assert keys[:2] == ["groq/openai/gpt-oss-120b", "cerebras/gpt-oss-120b"]
+    assert "cerebras/qwen-3-235b-a22b-instruct-2507" in keys and "cerebras/llama3.1-8b" not in keys

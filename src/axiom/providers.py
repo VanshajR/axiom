@@ -55,6 +55,9 @@ class ChatProvider(ABC):
 # let the router try the next model; the silent one gets benched for a while.
 STREAM_TIMEOUT = httpx.Timeout(20.0, connect=10.0)
 
+# https://ai.google.dev/gemini-api/docs/thought-signatures (calls not made by Gemini)
+FOREIGN_CALL = {"google": {"thought_signature": "skip_thought_signature_validator"}}
+
 
 class OpenAICompatible(ChatProvider):
     def __init__(self, name: str, base_url: str, api_key: str, http: httpx.AsyncClient, echoes_extra: bool = False):
@@ -118,7 +121,15 @@ class OpenAICompatible(ChatProvider):
     def _prepare(self, messages: list[dict]) -> list[dict]:
         """Earlier turns may have come from another provider; drop extras this one would reject."""
         if self.echoes_extra:
-            return messages
+            # Gemini wants a thought signature on every earlier tool call. Calls another
+            # provider made have none, so they get the placeholder Google documents for
+            # exactly that case (a request that falls over to Gemini mid-answer).
+            return [
+                {**m, "tool_calls": [c if c.get("extra_content") else {**c, "extra_content": FOREIGN_CALL}
+                                     for c in m["tool_calls"]]}
+                if m.get("tool_calls") else m
+                for m in messages
+            ]
         cleaned = []
         for m in messages:
             if m.get("tool_calls"):
@@ -131,6 +142,8 @@ def build_providers(settings, http: httpx.AsyncClient) -> list[ChatProvider]:
     providers = []
     if settings.groq_api_key:
         providers.append(OpenAICompatible("groq", "https://api.groq.com/openai/v1", settings.groq_api_key, http))
+    if settings.cerebras_api_key:
+        providers.append(OpenAICompatible("cerebras", "https://api.cerebras.ai/v1", settings.cerebras_api_key, http))
     if settings.gemini_api_key:
         providers.append(OpenAICompatible(
             "gemini", "https://generativelanguage.googleapis.com/v1beta/openai", settings.gemini_api_key, http,

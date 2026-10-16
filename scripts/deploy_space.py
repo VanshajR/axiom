@@ -49,7 +49,7 @@ def main() -> None:
 
     if not api.repo_exists(SPACE, repo_type="space"):
         api.create_repo(SPACE, repo_type="space", space_sdk="docker", private=False)
-    for key in ("GROQ_API_KEY", "GEMINI_API_KEY"):
+    for key in ("GROQ_API_KEY", "GEMINI_API_KEY", "CEREBRAS_API_KEY"):
         if env.get(key):
             api.add_space_secret(SPACE, key, env[key])
     api.add_space_variable(SPACE, "PROFILE_URL", f"{SITE}/profile.json")

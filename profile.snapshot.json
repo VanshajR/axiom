@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T20:09:57.750Z",
+  "generated_at": "2026-10-16T21:06:25.568Z",
   "profile": {
     "name": "Vanshaj Raghuvanshi",
     "headline": "Software Engineer | AI Systems, Agentic Workflows, and Cloud/Backend Infrastructure",
@@ -421,31 +421,75 @@
       "slug": "axiom",
       "name": "Axiom",
       "tier": "flagship",
-      "status": "in-progress",
+      "status": "active",
       "site": true,
-      "summary": "The assistant on this site. It answers from the same validated data the site is built from, using tool calling for projects, experience, contact and navigation. Being rebuilt as a server-side agent with provider fallback, runtime model discovery, tracing and an eval set.",
+      "summary": "The assistant on this site: a server-side agent that answers from the same validated data the site is built from, through tools exposed as a public MCP server. It acts on the page (scrolls to sections, opens the resume, drafts an email for the visitor to send) and routes each request across Groq and Gemini models with automatic fallback.",
       "tech": [
-        "React",
-        "Vite",
         "Python",
         "FastAPI",
-        "Hugging Face Spaces",
+        "MCP",
+        "OpenTelemetry",
         "Groq",
         "Gemini",
-        "OpenTelemetry",
-        "Langfuse"
+        "React",
+        "Vite",
+        "Hugging Face Spaces"
       ],
       "areas": [
         "ai",
+        "backend",
         "web"
       ],
-      "links": {},
+      "links": {
+        "code": "https://github.com/VanshajR/axiom"
+      },
       "media": {
         "thumbnail": "/projects/axiom.webp"
       },
       "order": 2,
       "category": "AI/ML",
-      "highlights": []
+      "highlights": [
+        {
+          "id": "evals",
+          "text": "Passed **26/26** cases on an eval set covering tool choice, page actions, grounded facts and prompt-injection refusals, at **2.9 s median** and **5.4 s p95** latency.",
+          "tags": [
+            "ai",
+            "testing"
+          ]
+        },
+        {
+          "id": "routing",
+          "text": "Built a provider-agnostic router that discovers models at runtime, ranks them by family and benches failing ones, recovering every request that needed a fallback in evaluation.",
+          "tags": [
+            "ai",
+            "backend",
+            "reliability"
+          ]
+        },
+        {
+          "id": "mcp",
+          "text": "Exposed career-data lookups as an MCP server that the agent calls in-process and any MCP client can use over streamable HTTP.",
+          "tags": [
+            "ai",
+            "mcp"
+          ]
+        },
+        {
+          "id": "actions",
+          "text": "Replaced keyword intent detection with model tool calls that drive the page, validating server-side that a drafted email is grounded in the visitor's own words.",
+          "tags": [
+            "ai",
+            "frontend"
+          ]
+        },
+        {
+          "id": "tracing",
+          "text": "Instrumented every request with OpenTelemetry GenAI spans plus live latency and fallback stats.",
+          "tags": [
+            "observability"
+          ]
+        }
+      ]
     },
     {
       "slug": "openresponses-mcp",
