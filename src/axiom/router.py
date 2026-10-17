@@ -23,15 +23,18 @@ log = logging.getLogger("axiom.router")
 PREFERENCES: list[tuple[str, str]] = [
     ("groq", r"openai/gpt-oss-120b"),
     ("cerebras", r"gpt-oss-120b"),  # same model, separate free quota
-    ("gemini", r"gemini-\d+(\.\d+)?-flash"),
+    # Groq's per-minute token limit is per model, so its second model doubles the budget
     ("groq", r"qwen/qwen\d+(\.\d+)*-\d+b"),
+    ("gemini", r"gemini-\d+(\.\d+)?-flash"),
     ("gemini", r"gemini-flash-latest"),
     ("cerebras", r"qwen-3-\d+b-a\d+b-instruct.*"),
-    ("groq", r"openai/gpt-oss-20b"),
     ("gemini", r"gemini-\d+(\.\d+)?-flash-lite"),
+    # last: in evals it answered from thin air instead of from the facts it was given
+    ("groq", r"openai/gpt-oss-20b"),
 ]
 PER_PATTERN = 3  # newest three versions of each family, e.g. gemini-3.8-flash, 3.7, 3.6
 
+SHORT_WAIT_S = 3.0  # wait this long for the same model rather than fall back
 COOLDOWN_S = {RateLimited: 60, Overloaded: 30, ModelUnavailable: 6 * 3600, AuthFailed: 3600}
 
 
@@ -98,6 +101,9 @@ class Router:
     def _bench(self, candidate: Candidate, error: ProviderError) -> None:
         stats.failures[f"{candidate.key} ({type(error).__name__})"] += 1
         seconds = COOLDOWN_S.get(type(error), 0)
+        if isinstance(error, RateLimited) and error.retry_after is not None:
+            # bench for as long as the provider asked, not a flat minute
+            seconds = min(max(error.retry_after, 1.0), 6 * 3600)
         if not seconds:
             return
         if isinstance(error, AuthFailed):  # the key is bad for every model of that provider
@@ -114,7 +120,10 @@ class Router:
         """
         attempts = 0
         last_error: ProviderError | None = None
-        for candidate in self._usable(time.time()):
+        queue = list(self._usable(time.time()))
+        waited: set[str] = set()
+        while queue:
+            candidate = queue.pop(0)
             attempts += 1
             sent_text = False
             with model_call_span(candidate.provider.name, candidate.model) as span:
@@ -137,5 +146,13 @@ class Router:
                     last_error = error
                     if not error.retryable or sent_text:
                         raise
+                    if (isinstance(error, RateLimited) and error.retry_after is not None
+                            and error.retry_after <= SHORT_WAIT_S and candidate.key not in waited):
+                        # a per-minute limit that frees up in a moment: the best model is worth a short wait
+                        waited.add(candidate.key)
+                        stats.failures[f"{candidate.key} (waited)"] += 1
+                        await asyncio.sleep(error.retry_after + 0.1)
+                        queue.insert(0, candidate)
+                        continue
                     self._bench(candidate, error)
         raise last_error or Overloaded("router", "*", "no model available right now")

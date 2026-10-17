@@ -87,7 +87,7 @@ class OpenAICompatible(ChatProvider):
                 "POST", f"{self.base_url}/chat/completions", json=body, headers=self._headers, timeout=STREAM_TIMEOUT
             ) as r:
                 if r.status_code != 200:
-                    raise classify(self.name, model, r.status_code, (await r.aread()).decode(errors="replace"))
+                    raise classify(self.name, model, r.status_code, (await r.aread()).decode(errors="replace"), r.headers)
                 async for line in r.aiter_lines():
                     if not line.startswith("data:"):
                         continue

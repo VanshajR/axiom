@@ -127,3 +127,43 @@ def test_cerebras_joins_the_ranking_when_it_has_a_key():
     keys = [c.key for c in ranked]
     assert keys[:2] == ["groq/openai/gpt-oss-120b", "cerebras/gpt-oss-120b"]
     assert "cerebras/qwen-3-235b-a22b-instruct-2507" in keys and "cerebras/llama3.1-8b" not in keys
+
+
+@pytest.mark.parametrize(
+    "body, headers, seconds",
+    [
+        ("Rate limit reached ... Please try again in 472.5ms. Need more tokens?", None, 0.4725),
+        ("Please try again in 1m26.4s.", None, 86.4),
+        ('{"error": {"details": [{"retryDelay": "37s"}]}}', None, 37.0),
+        ("slow down", {"retry-after": "2"}, 2.0),
+        ("slow down", None, None),
+    ],
+)
+def test_rate_limits_say_how_long_to_wait(body, headers, seconds):
+    error = classify("groq", "m", 429, body, headers)
+    assert isinstance(error, RateLimited)
+    assert error.retry_after == pytest.approx(seconds) if seconds is not None else error.retry_after is None
+
+
+async def test_a_short_rate_limit_waits_for_the_same_model_instead_of_falling_back():
+    groq = FakeProvider("groq", ["openai/gpt-oss-120b"], [
+        RateLimited("groq", "m", "try again in 50ms", 429, retry_after=0.05),
+        say("from groq"),
+    ])
+    gemini = FakeProvider("gemini", ["gemini-3.5-flash"], [say("from gemini")])
+    router = Router([groq, gemini])
+    await router.refresh()
+    events = await collect(router)
+    assert [e.text for e in events if isinstance(e, TextDelta)] == ["from groq"]
+    assert gemini.seen == [] and "groq/openai/gpt-oss-120b" not in router.benched_until
+
+
+async def test_a_long_rate_limit_benches_only_as_long_as_asked():
+    groq = FakeProvider("groq", ["openai/gpt-oss-120b"], [RateLimited("groq", "m", "x", 429, retry_after=20)])
+    gemini = FakeProvider("gemini", ["gemini-3.5-flash"], [say("from gemini")])
+    router = Router([groq, gemini])
+    await router.refresh()
+    import time
+    before = time.time()
+    await collect(router)
+    assert 18 < router.benched_until["groq/openai/gpt-oss-120b"] - before < 22

@@ -141,7 +141,7 @@ async def test_contact_mode_only_offers_send_email():
 
 def test_persona_comes_from_the_site_data(profile):
     prompt = agent.system_prompt(profile)
-    assert "Vanshaj Raghuvanshi designed and built you" in prompt
+    assert "Vanshaj Raghuvanshi built you" in prompt
     assert profile["site"]["assistant"]["personality"] in prompt
     assert "start_email_to_vanshaj" in prompt and "show_on_page" in prompt
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T21:06:25.568Z",
+  "generated_at": "2026-10-17T11:01:58.662Z",
   "profile": {
     "name": "Vanshaj Raghuvanshi",
     "headline": "Software Engineer | AI Systems, Agentic Workflows, and Cloud/Backend Infrastructure",
@@ -433,7 +433,7 @@
         "Gemini",
         "React",
         "Vite",
-        "Hugging Face Spaces"
+        "Vercel"
       ],
       "areas": [
         "ai",
@@ -747,7 +747,7 @@
       ],
       "category": "AI/ML",
       "plans": [
-        "Superseded by a modern agent builder (planned flagship): multi-tenant, RBAC, deploys agents to Hugging Face Spaces"
+        "Superseded by a modern agent builder (planned flagship): multi-tenant, RBAC, deploys agents to free hosting"
       ]
     },
     {
@@ -1030,8 +1030,12 @@
       "areas": [
         "backend"
       ],
-      "links": {},
-      "media": {},
+      "links": {
+        "code": "https://github.com/VanshajR/Virtuoso"
+      },
+      "media": {
+        "thumbnail": "https://raw.githubusercontent.com/VanshajR/Virtuoso/main/docs/card.png"
+      },
       "order": 12,
       "category": "Bots",
       "highlights": []
