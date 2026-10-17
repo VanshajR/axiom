@@ -1,0 +1,7 @@
+.venv
+.env
+tests
+evals
+scripts
+docs
+Dockerfile

@@ -1,7 +1,7 @@
 """HTTP API.
 
   POST /chat    streams an answer as server-sent events (text, tool, done, error)
-  GET  /health  status plus the models currently in rotation (the keep-alive ping hits this)
+  GET  /health  status plus the models currently in rotation
   GET  /stats   rolling numbers: latency, fallback rescues, tool usage
        /mcp     the same tools as a public MCP server (streamable HTTP)
 """
@@ -31,7 +31,7 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 
 # Public and read-only: the tools only return what the site already publishes, so
 # the DNS-rebinding guard (meant for local MCP servers) would only block the
-# Space's own hostname.
+# server's own hostname.
 mcp_http = tools.mcp.streamable_http_app(
     streamable_http_path="/",
     stateless_http=True,
@@ -40,18 +40,42 @@ mcp_http = tools.mcp.streamable_http_app(
 )
 
 
+_router: Router | None = None
+_starting = asyncio.Lock()
+
+
+async def ready() -> Router:
+    """Set everything up on first use. Long-running servers do it at startup (lifespan);
+    on serverless the first request does it, and a warm instance keeps it."""
+    global _router
+    if _router is not None:
+        return _router
+    async with _starting:
+        if _router is None:
+            init_tracing()
+            http = httpx.AsyncClient()
+            tools.store = ProfileStore(settings.profile_url, http)
+            router = Router(build_providers(settings, http))
+            await router.refresh()
+            asyncio.create_task(router.refresh_forever())
+            mcp_up = asyncio.Event()
+            asyncio.create_task(_serve_mcp(mcp_up))
+            await mcp_up.wait()
+            _router = router
+    return _router
+
+
+async def _serve_mcp(up: asyncio.Event) -> None:
+    # the MCP transport needs its session manager running for as long as the app lives
+    async with tools.mcp.session_manager.run():
+        up.set()
+        await asyncio.Event().wait()
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    init_tracing()
-    async with httpx.AsyncClient() as http:
-        tools.store = ProfileStore(settings.profile_url, http)
-        router = Router(build_providers(settings, http))
-        await router.refresh()
-        app.state.router = router
-        refresher = asyncio.create_task(router.refresh_forever())
-        async with tools.mcp.session_manager.run():
-            yield
-        refresher.cancel()
+    await ready()
+    yield
 
 
 app = FastAPI(title="Axiom", lifespan=lifespan)
@@ -74,6 +98,8 @@ class ExactMcpPath:
     async def __call__(self, scope, receive, send):
         if scope["type"] == "http" and scope["path"] == "/mcp":
             scope = {**scope, "path": "/mcp/", "raw_path": b"/mcp/"}
+        if scope["type"] == "http" and scope["path"].startswith("/mcp"):
+            await ready()
         await self.app(scope, receive, send)
 
 
@@ -93,14 +119,14 @@ class ChatRequest(BaseModel):
 
 
 def _visitor(request: Request) -> str:
-    # behind the Space's proxy the real address is the first X-Forwarded-For entry
+    # behind a proxy (Vercel, Docker hosts) the real address is the first X-Forwarded-For entry
     forwarded = request.headers.get("x-forwarded-for", "")
     return forwarded.split(",")[0].strip() or (request.client.host if request.client else "unknown")
 
 
 @app.post("/chat")
 async def chat(body: ChatRequest, request: Request):
-    # The Space's proxy answers CORS preflights itself and allows any origin, so
+    # Some proxies answer CORS preflights themselves and allow any origin, so
     # the allowlist is enforced here too. (A script can fake Origin; the rate
     # limit below is what protects the free quotas from those.)
     origin = request.headers.get("origin")
@@ -111,8 +137,10 @@ async def chat(body: ChatRequest, request: Request):
     if not limiter.allow(_visitor(request)):
         raise HTTPException(429, "That's a lot of questions at once. Give it a minute.")
 
+    router = await ready()
+
     async def events():
-        async for event in agent.run(body.message, [t.model_dump() for t in body.history], request.app.state.router, body.mode):
+        async for event in agent.run(body.message, [t.model_dump() for t in body.history], router, body.mode):
             yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
 
     return StreamingResponse(events(), media_type="text/event-stream", headers={"Cache-Control": "no-cache"})
@@ -120,7 +148,7 @@ async def chat(body: ChatRequest, request: Request):
 
 @app.get("/health")
 async def health(request: Request):
-    router: Router = request.app.state.router
+    router = await ready()
     return {"ok": bool(router.candidates), "models": [c.key for c in router.candidates]}
 
 

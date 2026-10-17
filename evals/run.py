@@ -1,7 +1,7 @@
 """Run Axiom's eval set against a running backend and score each answer.
 
     python evals/run.py                                   # local backend on :8100
-    python evals/run.py --url https://targaryen001-wyvern.hf.space --origin https://vanshajraghuvanshi.dev
+    python evals/run.py --url https://axiom-orcin-delta.vercel.app --origin https://vanshajraghuvanshi.dev
 
 Each case checks what a visitor would notice: the right lookup, the right page
 action (and no page action when they only asked a question), the facts that must
@@ -87,7 +87,7 @@ def main() -> None:
     p.add_argument("--url", default="http://localhost:8100")
     p.add_argument("--origin", default="http://localhost:3000")
     p.add_argument("--only", help="comma separated case ids")
-    p.add_argument("--pause", type=float, default=0.0, help="seconds between cases (the live Space allows 12 a minute)")
+    p.add_argument("--pause", type=float, default=0.0, help="seconds between cases (the live server allows 12 a minute)")
     args = p.parse_args()
 
     cases = json.loads((HERE / "cases.json").read_text(encoding="utf-8"))

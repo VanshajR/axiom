@@ -14,7 +14,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "pytest-asyncio>=0.24"]
-deploy = ["huggingface_hub>=1.0"]
 
 [build-system]
 requires = ["setuptools>=68"]

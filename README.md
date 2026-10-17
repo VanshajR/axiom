@@ -18,7 +18,7 @@ Requests go to Groq or Gemini, whichever is up; if one is rate-limited or down, 
 The tools are a public, read-only MCP server:
 
 ```json
-{ "mcpServers": { "axiom": { "url": "https://targaryen001-wyvern.hf.space/mcp/" } } }
+{ "mcpServers": { "axiom": { "url": "https://axiom-orcin-delta.vercel.app/mcp" } } }
 ```
 
 In Claude: Settings → Connectors → Add custom connector, with the same URL.
@@ -33,5 +33,7 @@ uvicorn axiom.app:app --port 8100
 pytest
 python evals/run.py                                 # 26 real questions against the running server
 ```
+
+Deploy with `python scripts/deploy_vercel.py` (it runs as a Vercel function). The `Dockerfile` runs it on any other host.
 
 Why it's built the way it is: [docs/decisions.md](docs/decisions.md).

@@ -267,11 +267,11 @@ async def test_public_mcp_answers_at_mcp_without_a_redirect():
     import httpx
     from axiom import app as app_module
 
-    async with tools.mcp.session_manager.run():
-        transport = httpx.ASGITransport(app=app_module.app)
-        async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
-            r = await client.post("/mcp", json={"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
-                                  headers={"Accept": "application/json, text/event-stream"})
+    # no lifespan here, as on serverless: the first request starts the MCP session manager
+    transport = httpx.ASGITransport(app=app_module.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        r = await client.post("/mcp", json={"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+                              headers={"Accept": "application/json, text/event-stream"})
     assert r.status_code == 200
     names = {t["name"] for t in r.json()["result"]["tools"]}
     assert "get_project" in names and "send_email" not in names

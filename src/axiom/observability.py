@@ -55,7 +55,7 @@ def record_usage(span, usage: dict, finish_reason: str | None) -> None:
 
 
 class Stats:
-    """In-memory, since the Space restarts are rare and these are rolling numbers anyway."""
+    """In-memory, since restarts are rare and these are rolling numbers anyway."""
 
     def __init__(self, window: int = 500):
         self.started = time.time()
